@@ -1,0 +1,15 @@
+export enum CampaignGoalConst {
+    CAT_SRC="CAT",
+    STYPE_SRC="STYPE",
+    STRATEGY_SRC="STRATEGY",
+    OPTIMIZATION_SRC="OPTIMIZATION",
+
+    CAT_TITLE="CATEGORY",
+    STYPE_TITLE="MARKET",
+    STRATEGY_TITLE="GOAL",
+    OPTIMIZATION_TITLE="OPTIMIZATION",
+    GOAL_MISSING="GOAL_MISSING"
+ 
+}
+
+export default CampaignGoalConst;

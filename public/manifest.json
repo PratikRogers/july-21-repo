@@ -1,0 +1,10 @@
+{
+  "short_name": "REDUI",
+  "name": "Red UI",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "oauth2AllowImplicitFlow":true
+
+}

@@ -1,0 +1,13 @@
+{
+    "fadeClass" : "modal fade",
+    "centerModalClass": "modal-dialog modal-dialog-centered modal-lg",
+    "modelContent": "modal-content",
+    "modalheader" : "modal-header",
+    "modelTitle" : "modal-title",
+    "modelWarningTxtClass" :"warningIcon float-left spacerR24",
+    "modelMsgBoxTxtClass" :"float-left spacerR24",
+    "modelFooter": "modal-footer alignCenter",
+    "modelButtonOk" : "btn btnDarkGray spacerR12",
+    "modelButtonCancel" :"btn btnPrimary spacerL12"
+
+}

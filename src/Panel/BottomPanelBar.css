@@ -1,0 +1,64 @@
+.navbar-custom{
+  background-color:#da291c;
+  background:#da291c;
+}
+.navbar-default .navbar-nav>li>a
+{
+  color:white;
+}
+
+.mailToCl{
+  color: hsla(0,0%,100%,.5)!important;
+  cursor: pointer;
+  text-decoration: none!important;
+  background-color: transparent;
+} 
+.mailToCl:visited, .mailToCl:hover, .mailToCl:active, mailToCl:link  {    
+  color:hsla(0,0%,100%,.5)!important;
+  text-decoration: underline!important;
+  background-color: transparent;
+  
+}
+
+.ExtrRight{
+  float: right;
+  padding-right: 15px;
+  color:white;
+ }
+.bottomBanner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #da291c;
+    color: hsla(0,0%,100%,.5);
+    text-align: left;
+    margin-left: auto;
+    z-index: 10000;
+}
+
+.midBanner {
+  box-sizing: border-box; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; width: 1170px;
+}
+
+.centerBanner {
+  box-sizing: border-box; padding-right: 15px; padding-left: 15px; border-top: 0px #101010; box-shadow: none; width: auto; padding-bottom: 0px; margin-right: 0px; margin-left: 0px; border-right-color: #101010; border-bottom-color: #101010; border-left-color: #101010; overflow: hidden !important; height: auto !important;
+}
+
+.ulBanner {
+  box-sizing: border-box; margin: 0px; padding-left: 0px; list-style: none; float: left;
+}
+
+.liLevel1 {
+  box-sizing: border-box; position: relative; display: block; float: left;
+}
+
+.anchors {
+  box-sizing: border-box; color: #ffffff; text-decoration-line: none; position: relative; display: block; padding: 15px; line-height: 20px; font-size: 22px;
+}
+
+.btmBardivider {
+  display: inline-block;
+  margin: 0 10px;
+}

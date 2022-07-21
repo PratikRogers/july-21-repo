@@ -1,0 +1,41 @@
+
+.leaflet-container {
+    min-height: 720px;
+    width: 100%;
+    z-index: 0;
+  }
+
+.disabledControls{
+    cursor: not-allowed;
+    pointer-events: none;
+ 
+}
+
+.overlayLandingPageSpinner{
+    margin-left: -4em;
+    position: fixed;
+    left: 40%;
+    top: 25%;
+    z-index: 9999999999;
+    overflow: none;
+    background: #fff;
+}
+
+.overlaySpinner {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 9999999999;
+    transform: translate(-50%, -50%);
+    overflow: none;
+}
+.overlayMobileSpinner {
+    background: #ffffff;
+    color: #666666;
+    position: absolute;
+    left:50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    /* z-index: 1; */
+    z-index: 5000;
+}

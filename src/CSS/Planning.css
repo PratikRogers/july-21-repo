@@ -1,0 +1,189 @@
+.fltRight{
+    float: right;
+}
+.plnLableWidth{
+    width:100%;
+}
+.extraPadd {
+   margin: 4px 0px 4px 0px;
+   border-radius: 5px!important;
+}
+.NoOutline { outline: none;}
+.plnBtnStyle{
+    color: #646464;
+    background-color: transparent;
+    background-image: none;
+    border-color: #adadad;
+
+}
+.planningContent{
+    width:90%;
+    margin-top: 80px;
+    margin-left: 10px;
+    margin-bottom: 120px;
+}
+.planningColWidth{
+    width: 25%;
+}
+.plnBtnStyle:focus, .plnBtnStyle:active {
+    outline: none !important;
+    box-shadow: none!important;
+ }
+ .plnBtnStyle:focus > .btn__content  {   box-shadow: 0;  
+}
+ 
+
+.Planningtable-bordered-inner {
+    border:0px solid #ddd!important;
+}
+.Planning-table-bordered-outer {
+    border: 0px solid #ddd!important;
+    border-radius: 5px!important;
+}
+.customrow {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.ColfullWidth{
+    width: 100%;
+}
+.hSpacer20
+{
+    height: 20px;
+}
+.PlanColBorderPerCat{
+    border: 1px solid #ddd!important;
+    border-radius: 5px!important;
+}
+.allFontPlanning{
+    color: #646464;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+}
+.noBorder{
+    border: 0px #ddd!important;
+    padding: 4px!important;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 0px solid #ddd!important;
+}
+.customBorder{
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.colTitleFont{
+    font-size: 20px!important;
+    font-weight: 700px!important;
+}
+.disabledBUtton{
+    opacity: .65;
+}
+
+.defaultButtonCls{
+    color: #fff!important;
+    background-color: #da291c!important;
+    border-color: #da291c!important;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .750rem 1.10rem;
+    line-height: 1.5;
+    border-radius: .50rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+@media (min-width: 200px) and (max-width:768px) {  
+    .planningColWidth{
+        width: 100%;
+    }
+    .planningContent{
+        width:100%;
+        padding: 0% 7% 0% 8%;
+        margin-left:0px!important;
+    } 
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width:991px) {  
+    .planningColWidth{
+    width: 50%;
+    }
+    .planningContent{
+        width:100%;
+        padding: 0% 7% 0% 8%;
+        margin-left:40px!important;
+    }
+
+ }
+@media (min-width: 992px) and (max-width:1199px) {   }
+@media (min-width: 1200px) {   }
+
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape) { 
+    .planningColWidth {
+        width: 24.60%!important;
+    }
+    .planningContent {
+        width: 100%;
+        padding: 0% 4% 0% 8%;
+        margin-left: 0px!important;
+    }
+    .ColfullWidth {
+        width: 99%;
+    }
+
+}
+
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
+    .planningContent {
+        width: 100%;
+        padding: 0% 6% 0% 8%;
+        margin-left: 38px!important;
+     }
+
+    .planningColWidth {
+        width: 49%!important;
+    }
+    .ColfullWidth {
+        width: 99%;
+    }
+ 
+}
+
+.btn-outline-simple {
+    color: #646464;
+    background-color: transparent;
+    background-image: none;
+    border-color: #adadad;
+    z-index: 0;
+}
+.btn-outline-simple:hover {
+      color: #646464;
+      background-color: #e6e6e6;
+      border-color: #adadad;
+    }
+    .btn-outline-simple:focus, .btn-outline-simple.focus {
+      box-shadow: none;
+    }
+    .btn-outline-simple:disabled, .btn-outline-simple.disabled {
+      color: #adadad;
+      background-color: transparent;
+    }
+    .btn-outline-simple:not(:disabled):not(.disabled):active, .btn-outline-simple:not(:disabled):not(.disabled).active, .show > .btn-outline-simple.dropdown-toggle {
+      color: #646464;
+      background-color: #e6e6e6;
+      border-color: #adadad;
+    }
+    .btn-outline-simple:not(:disabled):not(.disabled):active:focus, .btn-outline-simple:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-simple.dropdown-toggle:focus {
+      box-shadow: none;
+    }  
+  
+
+    @media all and (min-width: 768px) and (max-width:768px) {
+        .planningContent {
+            margin-left: 38px;
+        }
+    }

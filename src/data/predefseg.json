@@ -1,0 +1,130 @@
+[
+    {
+        "id": 1,
+        "segment": "demographics",
+        "segmentName": "Age 18-34",
+        "segmentValue": "18-34",
+        "columnName": "age_group",
+        "type": "selector"
+    },
+    {
+        "id": 2,
+        "segment": "demographics",
+        "segmentName": "Age 18-49",
+        "segmentValue": "18-49",
+        "columnName": "age_group",
+        "type": "selector"
+    },
+    {
+        "id": 3,
+        "segment": "demographics",
+        "segmentName": "Age 25-54",
+        "segmentValue": "25-54",
+        "columnName": "age_group",
+        "type": "selector"
+    },
+    {
+        "id": 4,
+        "segment": "demographics",
+        "segmentName": "Age 55+",
+        "segmentValue": "55+",
+        "columnName": "age_group",
+        "type": "selector"
+    },
+    {
+        "id": 5,
+        "segment": "demographics",
+        "segmentName": "Ontario",
+        "segmentValue": "ON",
+        "columnName": "adr_prov_code",
+        "type": "selector"
+    },
+    {
+        "id": 6,
+        "segment": "demographics",
+        "segmentName": "New Brunswick",
+        "segmentValue": "NB",
+        "columnName": "adr_prov_code",
+        "type": "selector"
+    },
+    {
+        "id": 7,
+        "segment": "demographics",
+        "segmentName": "New Foundland",
+        "segmentValue": "NL",
+        "columnName": "adr_prov_code",
+        "type": "selector"
+    },
+    {
+        "id": 8,
+        "segment": "demographics",
+        "segmentName": "British Columbia",
+        "segmentValue": "BC",
+        "columnName": "adr_prov_code",
+        "type": "selector"
+    },
+    {
+        "id": 9,
+        "segment": "demographics",
+        "segmentName": "Quebec",
+        "segmentValue": "PQ",
+        "columnName": "adr_prov_code",
+        "type": "selector"
+    },
+    {
+        "id": 10,
+        "segment": "demographics",
+        "segmentName": "Alberta",
+        "segmentValue": "AB",
+        "columnName": "adr_prov_code",
+        "type": "selector"
+    },
+    {
+        "id": 11,
+        "segment": "interests",
+        "segmentName": "Rogers Wireless SMS MMS User",
+        "segmentValue": "0",
+        "columnName": "rog_wl_sms_mms",
+        "type": "selector"
+    },
+    {
+        "id": 12,
+        "segment": "interests",
+        "segmentName": "Canadian Business Digital",
+        "segmentValue": "0",
+        "columnName": "pub_canadianbusinessdigital",
+        "type": "selector"
+    },
+    {
+        "id": 13,
+        "segment": "interests",
+        "segmentName": "Chatelaine English Digital",
+        "segmentValue": "0",
+        "columnName": "pub_chatelaineenglishdigital",
+        "type": "selector"
+    },
+    {
+        "id": 14,
+        "segment": "interests",
+        "segmentName": "Chatelaine French Digital",
+        "segmentValue": "0",
+        "columnName": "pub_chatelainefrenchdigital",
+        "type": "selector"
+    },
+    {
+        "id": 15,
+        "segment": "interests",
+        "segmentName": "Next Issue Basic Subscriber",
+        "segmentValue": "0",
+        "columnName": "nextissue_basic",
+        "type": "selector"
+    },
+    {
+        "id": 16,
+        "segment": "interests",
+        "segmentName": "Next Issue Premium Subscriber",
+        "segmentValue": "0",
+        "columnName": "nextissue_premium",
+        "type": "selector"
+    }
+]

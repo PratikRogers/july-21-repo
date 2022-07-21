@@ -1,0 +1,12 @@
+.subHeading {
+    font-style: normal;
+    color: #da291c;
+}
+
+.paddTop{
+    margin-top: 150px
+}
+
+.pointerHand{
+    cursor: pointer;
+}

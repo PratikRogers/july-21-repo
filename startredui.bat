@@ -1,0 +1,1 @@
+set REACT_APP_LOGIN_CONFIG=""&&set REACT_APP_TO_EMAIL=pratik.pawar@rci.rogers.ca&&set REACT_APP_TO_SUBJECT=R.E.D. UI feedback from&&set REACT_APP_TO_BODY=Feedback from&&set HTTPS=true&&npm start

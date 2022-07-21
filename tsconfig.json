@@ -1,0 +1,55 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "build/dist",
+    "module": "esnext",
+    "target": "es5",
+    "lib": [
+      "es7",
+      "es6",
+      "dom"
+    ],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "strict": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "types": [
+      "node"
+    ],
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
+  },
+  "ordered-imports": [
+    false,
+    {
+      "import-sources-order": "any",
+      "named-imports-order": "case-insensitive"
+    }
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts"
+  ],
+  "include": [
+    "src"
+  ]
+}

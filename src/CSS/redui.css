@@ -1,0 +1,46 @@
+
+
+.clsMethodologyFnt {
+     font-weight: 600;
+     font-size: 14px;
+     margin: 0 0 5px;
+}
+ 
+ 
+.react-bs-table-bordered {
+    border: 1px solid #ddd!important;
+    border-radius: 5px!important;
+}
+.react-bs-table table {
+    margin-bottom: 0!important;
+    table-layout: fixed!important;
+  }
+.custompagination{
+    text-align: right;
+    padding-right: 20px;
+}
+  /*End Audiences */
+
+  /*Common css for Methodology */
+
+  .mthdStyle:hover, .mthdListStyle:hover {    
+    color: #961c13!important;
+    text-decoration: underline!important;
+}
+
+
+/*
+Terminology
+*/
+.reduiRedColor {
+    color: #da291c!important;
+}
+.termFntSize{
+    font-size: 2.5rem;
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+}
+ 
+

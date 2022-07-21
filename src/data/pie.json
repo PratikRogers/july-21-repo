@@ -1,0 +1,27 @@
+[
+    {
+        "timestamp": "2018-04-17T00:47:44.963Z",
+        "result": [
+            {
+                "count": 537,
+                "ipg_channel": "YWHD"
+            },
+            {
+                "count": 526,
+                "ipg_channel": "HDCTY"
+            },
+            {
+                "count": 526,
+                "ipg_channel": "HDGLB"
+            },
+            {
+                "count": 519,
+                "ipg_channel": "HDNBC"
+            },
+            {
+                "count": 516,
+                "ipg_channel": "HDFOX"
+            }
+        ]
+    }
+]

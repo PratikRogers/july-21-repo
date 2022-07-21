@@ -1,0 +1,157 @@
+@media screen and (min-width: 520px) and (max-width: 1923px) {
+    .clsPadLeft{
+        padding: 15px;
+    }
+     .clsLoginTextWidth{
+         width:45%!important;
+     }
+
+    .Login {
+        padding: 100px 50px 100px 80px;
+   }
+    .textInput {
+        font-size: 14px;
+   }
+    .emptyDiv{
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        height: 50px;
+   }
+    .padd100 {
+        padding-top: 100px;
+   }
+    .Login form {
+        margin: 0 auto;
+        max-width: 320px;
+   }
+    .glyphicon {
+        font-size: 20px;
+   }
+    .marginbottom{
+        margin-bottom: 20px;
+   }
+    .textboxid {
+        height:40px;
+        font-size:14pt;
+        margin-bottom: 10px;
+        margin-top: 100px;
+   }
+    .loginLogo {
+        padding: 0px 0px 0 0px;
+        height: 100px;
+        width: 200px;
+        max-width: 320px;
+   }
+    .loginButton {
+        height: 50px;
+        max-width: 100px;
+   }
+    .panelCustom{
+        border: 5px;
+        width: 400px;
+        border: 9px;
+        margin-top: 100px;
+        background-color: #ebf5f5;
+   }
+    .remember{
+        font-size: 1.8rem;
+        vertical-align: bottom;
+        display: inline-block;
+   }
+
+   .btn-primary:focus, .btn-primary:hover {
+    background: #da291c;
+    background-color: #da291c;
+    background-position: 0 -15px;
+}
+    .btn-primary {
+        color: #fff;
+        background: #da291c;
+        border-color: #da291c;
+   }
+    .btn-primary > .hover, .btn-primary > .focus {
+        color:white;
+        background: #da291c;
+   }
+}
+@media screen and (max-width: 520px) {
+    .clsLoginTextWidth{
+        width:100%!important;
+    }
+    .alert{
+        width:80%!important;
+    }
+    .glyphicon {
+        font-size: 20px;
+   }
+  
+    .textInput {
+        font-size: 14px;
+   }
+    .emptyDiv{
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        height: 50px;
+   }
+    .Login {
+        padding: 100px 50px 100px 79px;
+        margin-left: 0%;
+   }
+    .spacer5{
+        height: 9px;
+   }
+    .Login form {
+        margin: 0 auto;
+        max-width: 320px;
+   }
+    .loginLogo {
+        padding: 0px 0px 0 0px;
+        height: 100px;
+        width: 200px;
+        max-width: 320px;
+   }
+    .loginButton {
+        height:50px;
+        max-width: 100px;
+   }
+    .panelCustom{
+        border: 5px;
+        width: 400px;
+        border: 9px;
+        margin-top: 100px;
+        background-color: #ebf5f5;
+   }
+    .remember{
+        font-size: 1.8rem;
+        vertical-align: bottom;
+        display: inline-block;
+   }
+  
+   .btn-primary:focus, .btn-primary:hover {
+    background: #da291c;
+    background-color: #da291c;
+    background-position: 0 -15px;
+}
+    .btn-primary {
+        color: #fff;
+        background: #da291c;
+        border-color: #da291c;
+   }
+    .btn-primary > .hover, .btn-primary > .focus {
+        color:white;
+        background: #da291c;
+   }
+}
+
+.centerImage{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+}

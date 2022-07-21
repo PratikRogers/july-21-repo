@@ -1,0 +1,5 @@
+{
+        "User_InValid_Access": "You do not have access to this application at this time",
+        "User_InValid_Token" : "Your session has expired, please relogin",
+        "Unknown_Exception": "Unknown error occured, please retry after some time "
+}

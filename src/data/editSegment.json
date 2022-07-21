@@ -1,0 +1,705 @@
+{
+    "segmentation": [
+        {
+            "category": "Demographics",
+            "segmentDetails": [
+                {
+                    "segmentId": 1,
+                    "segmentName": "Province: British Columbia",
+                    "segmentLabel": "(derived from billing records and browser behaviour)",
+                    "segmentType": "or",
+                    "selected": true
+                },
+                {
+                    "segmentId": 2,
+                    "segmentName": "Province: Alberta",
+                    "segmentLabel": "(derived from billing records and browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 3,
+                    "segmentName": "Province: Manitoba",
+                    "segmentLabel": "(derived from billing records and browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 4,
+                    "segmentName": "Province: Saskatchewan",
+                    "segmentLabel": "(derived from billing records and browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 5,
+                    "segmentName": "Province: Ontario",
+                    "segmentLabel": "(derived from billing records and browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 6,
+                    "segmentName": "Province: Quebec",
+                    "segmentLabel": "(derived from billing records and browser behaviour)",
+                    "segmentType": "or",
+                    "selected": true
+                },
+                {
+                    "segmentId": 7,
+                    "segmentName": "Province: New Brunswick",
+                    "segmentLabel": "(derived from billing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 8,
+                    "segmentName": "Province: Nova Scotia",
+                    "segmentLabel": "(derived from billing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 9,
+                    "segmentName": "Province: PEI",
+                    "segmentLabel": "(derived from billing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 10,
+                    "segmentName": "Province: Newfoundland & Labrador",
+                    "segmentLabel": "(derived from billing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 11,
+                    "segmentName": "Province: Maritimes",
+                    "segmentLabel": "(derived from billing records and browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 12,
+                    "segmentName": "Province: Nunavut",
+                    "segmentLabel": "(derived from billing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 13,
+                    "segmentName": "Province: Northwest Territories",
+                    "segmentLabel": "(derived from billing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 14,
+                    "segmentName": "Province: Yukon Territory",
+                    "segmentLabel": "(derived from billing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 15,
+                    "segmentName": "Province: Northern Canada",
+                    "segmentLabel": "(derived from billing records and browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 16,
+                    "segmentName": "Age: 18-24",
+                    "segmentLabel": "(derived from billing records and digital data)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 17,
+                    "segmentName": "Age: 25-34",
+                    "segmentLabel": "(derived from billing records and digital data)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 18,
+                    "segmentName": "Age: 35-44",
+                    "segmentLabel": "(derived from billing records and digital data)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 19,
+                    "segmentName": "Age: 45-54",
+                    "segmentLabel": "(derived from billing records and digital data)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 20,
+                    "segmentName": "Age: 55-64",
+                    "segmentLabel": "(derived from billing records and digital data)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 21,
+                    "segmentName": "Age: 65+",
+                    "segmentLabel": "(derived from billing records and digital data)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 47,
+                    "segmentName": "Gender: Male",
+                    "segmentLabel": "(derived from billing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 48,
+                    "segmentName": "Gender: Female",
+                    "segmentLabel": "(derived from billing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 57,
+                    "segmentName": "Avg Income 0-75K",
+                    "segmentLabel": "(Media Mart/LiveRamp)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 58,
+                    "segmentName": "Avg Income 100-150K",
+                    "segmentLabel": "(Media Mart/LiveRamp)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 59,
+                    "segmentName": "Avg Income 150K+",
+                    "segmentLabel": "(Media Mart/LiveRamp)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 60,
+                    "segmentName": "Avg Income 75-100K",
+                    "segmentLabel": "(Media Mart/LiveRamp)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 61,
+                    "segmentName": "Avg Income 250K+",
+                    "segmentLabel": "(Media Mart/LiveRamp)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 62,
+                    "segmentName": "Language: Arabic",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 63,
+                    "segmentName": "Language: Asian",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 64,
+                    "segmentName": "Language: Chinese",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 65,
+                    "segmentName": "Language: English",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 66,
+                    "segmentName": "Language: Filipino",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 67,
+                    "segmentName": "Language: French",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 68,
+                    "segmentName": "Language: Italian",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 69,
+                    "segmentName": "Language: Russian",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 70,
+                    "segmentName": "Language: South Asian",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 71,
+                    "segmentName": "Language: Spanish",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 75,
+                    "segmentName": "Canadian Dads",
+                    "segmentLabel": "(derived from browser behaviour and billing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 79,
+                    "segmentName": "Canadian Homeowners",
+                    "segmentLabel": "(derived from browser behaviour and billing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 80,
+                    "segmentName": "Canadian Millenials",
+                    "segmentLabel": "(derived from browser behaviour and billing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 81,
+                    "segmentName": "Canadian Moms",
+                    "segmentLabel": "(derived from browser behaviour and billing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 85,
+                    "segmentName": "Canadian Parents",
+                    "segmentLabel": "(derived from browser behaviour and subscriptions)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 86,
+                    "segmentName": "Canadian Small Business",
+                    "segmentLabel": "(derived from browser behaviour and billing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 87,
+                    "segmentName": "Canadian Small/Medium Business",
+                    "segmentLabel": "(derived from browser behaviour and billing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 93,
+                    "segmentName": "Asian Families",
+                    "segmentLabel": "(derived from browser and app behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 94,
+                    "segmentName": "Chinese Families",
+                    "segmentLabel": "(derived from browser and app behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 95,
+                    "segmentName": "East Asian Families",
+                    "segmentLabel": "(derived from browser and app behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 96,
+                    "segmentName": "Multicultural Families",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 97,
+                    "segmentName": "South Asian Families",
+                    "segmentLabel": "(derived from browser and app behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 98,
+                    "segmentName": "Southeast Asian Families",
+                    "segmentLabel": "(derived from browser and app behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "category": "Interests",
+            "segmentDetails": [
+                {
+                    "segmentId": 22,
+                    "segmentName": "Subscriber: Flare",
+                    "segmentLabel": "(derived from print subscriber data)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 23,
+                    "segmentName": "Subscriber: Hello!",
+                    "segmentLabel": "(derived from print subscriber data)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 24,
+                    "segmentName": "Subscriber: Macleans",
+                    "segmentLabel": "(derived from print subscriber data)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 25,
+                    "segmentName": "Subscriber: Moneysense",
+                    "segmentLabel": "(derived from print subscriber data)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 26,
+                    "segmentName": "Subscriber: Today's Parent",
+                    "segmentLabel": "(derived from print subscriber data)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 27,
+                    "segmentName": "Subscriber: Chatelaine (English)",
+                    "segmentLabel": "(derived from print subscriber data)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 28,
+                    "segmentName": "Subscriber: Chatelaine (French)",
+                    "segmentLabel": "(derived from print subscriber data)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 49,
+                    "segmentName": "Visits macleans.ca",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 50,
+                    "segmentName": "Visits Canadian Business",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 51,
+                    "segmentName": "Visits Chatelaine",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 52,
+                    "segmentName": "Visits Fashion sites",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 53,
+                    "segmentName": "Visits Flare",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 54,
+                    "segmentName": "Visits Hello!",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 55,
+                    "segmentName": "Visits Moneysense",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 56,
+                    "segmentName": "Visits Today's Parent",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 72,
+                    "segmentName": "Canadian Auto Enthusiasts",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 73,
+                    "segmentName": "French Canadian Beauty Enthusiasts",
+                    "segmentLabel": "(derived from browser behaviour and billing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 74,
+                    "segmentName": "Canadian Business Experts",
+                    "segmentLabel": "(derived from browser behaviour and billing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 76,
+                    "segmentName": "Canadian Fashion & Beauty Enthusiasts",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 77,
+                    "segmentName": "Canandian Fitness & Wellness Buffs",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 78,
+                    "segmentName": "Canadian Food Lovers",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 82,
+                    "segmentName": "Canadian Online Shoppers",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 83,
+                    "segmentName": "Canadian Beauty Shoppers",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 84,
+                    "segmentName": "Canadian Fashion Shoppers",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 88,
+                    "segmentName": "Canadian Sports Fans",
+                    "segmentLabel": "(derived from browser behaviour, set top box viewing records, and app usage)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 89,
+                    "segmentName": "Canadian Baseball Fans",
+                    "segmentLabel": "(derived from browser behaviour, set top box viewing records, and app usage)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 90,
+                    "segmentName": "Canadian Basketball Fans",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 91,
+                    "segmentName": "Canadian Hockey Fans",
+                    "segmentLabel": "(derived from browser behaviour)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 92,
+                    "segmentName": "Canadian Travel Buffs",
+                    "segmentLabel": "(derived from browser behaviour and location data)",
+                    "segmentType": null,
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "category": "Behaviours",
+            "segmentDetails": [
+                {
+                    "segmentId": 29,
+                    "segmentName": "Watches TV on weekdays",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 30,
+                    "segmentName": "Watches TV on weekends",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 31,
+                    "segmentName": "Watches TV 2AM-6AM",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 32,
+                    "segmentName": "Watches TV 6AM-10AM",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 33,
+                    "segmentName": "Watches TV 10AM-4:30PM",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 34,
+                    "segmentName": "Watches TV 4:30OM-7:30PM",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 35,
+                    "segmentName": "Watches TV 7:30PM-11PM",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 36,
+                    "segmentName": "Watches TV 11PM-2AM",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 37,
+                    "segmentName": "Watches Kids/Family TV",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 38,
+                    "segmentName": "Watches Life/Reality TV",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 39,
+                    "segmentName": "Watches Movies",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 40,
+                    "segmentName": "Watches Multicultural TV",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 41,
+                    "segmentName": "Watches News/Learning TV",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 42,
+                    "segmentName": "Watches Sports",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 43,
+                    "segmentName": "Watches Music TV",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 44,
+                    "segmentName": "Watches Radio on TV",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 45,
+                    "segmentName": "Watches Shopping TV",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                },
+                {
+                    "segmentId": 46,
+                    "segmentName": "Watches Spiritual TV",
+                    "segmentLabel": "(derived from set top box viewing records)",
+                    "segmentType": null,
+                    "selected": false
+                }
+            ]
+        }
+    ]
+}
