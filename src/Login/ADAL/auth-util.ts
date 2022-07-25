@@ -117,6 +117,7 @@ function getCRMUploader() {
     if (hostname === "localhost:3000") {
         return window.location.origin;
     }
+    console.log("hostname at auth-utils.ts file ==>", hostname);
     return window.location.origin+"/CRMUploader";
 
 }

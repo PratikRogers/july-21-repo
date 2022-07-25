@@ -235,7 +235,7 @@ export class Configs {
         }
         this.prefix = ":";
         this.port = 443;
-
+        console.log("hostname at Configs.ts file ==>", hostname);
         // hostname = "https://ehdpde101.dev.dmt.rogers.com";
         this.baseUrl = "https://" + hostname + this.prefix + this.port + "/";
         if (isLocalHost) {
