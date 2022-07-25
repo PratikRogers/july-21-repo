@@ -8,6 +8,9 @@ on:
     branches:
       - main
   workflow_dispatch:
+env:   
+  ENABLE_ORYX_BUILD: 'true'
+  SCM_DO_BUILD_DURING_DEPLOYMENT: 'true'
 
 jobs:
   build:
@@ -21,10 +24,7 @@ jobs:
         with:
           node-version: '16.x'
 
-      - name: npm install, build, and test
-        run: |
-          npm install --legacy-peer-deps
-          npm run build --if-present
+     
           
 
       - name: Upload artifact for deployment job
