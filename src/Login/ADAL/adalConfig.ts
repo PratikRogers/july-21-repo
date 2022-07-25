@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Logger from "../../rogersframework/Logger/Logger";
 
 // import * as adalC from 'node_modules/react-adal/lib/adal.js';

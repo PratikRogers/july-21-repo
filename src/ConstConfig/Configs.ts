@@ -141,19 +141,22 @@ export class Configs {
         return this.segmentAdvanceModeUrl;
     }
 
-     getCRMListUrl(){
-        return this.crmListUrl;
-    }
+    //  getCRMListUrl(){
+    //     return this.crmListUrl;
+    // }
 
     /* File */
     
-     getCRMFileUploadUrl() {
+    getCRMFileUploadUrl() {
         return this.cmrFileUploadUrl;
+    }
+    public getCRMListUrl() {
+     return this.crmStatListUrl;
     }
 
     // Added for admin rule
     
-//   private crmStatListUrl: string;
+  private crmStatListUrl: string;
 
   private reportingStatusSetUrl: string;
   private reportingStatusUrl: string;
@@ -278,7 +281,7 @@ export class Configs {
         
 
 
-//   this.crmStatListUrl = this.baseUrl + this.apiPath + 'app/data/getAdminCrmDetails';
+  this.crmStatListUrl = this.baseUrl + this.apiPath + 'app/data/getAdminCrmDetails';
   this.reportingStatusSetUrl = this.baseUrl + this.apiPath + "app/admin/notificationMessage";
   this.reportingStatusUrl = this.baseUrl + this.apiPath + "app/admin/getNotificationMessages";
   this.crmCanUrl = this.baseUrl + this.apiPath + "app/data/getCrmListForSegmentCreation";

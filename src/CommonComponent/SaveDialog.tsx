@@ -47,7 +47,7 @@ class SaveDialog extends React.Component<IDialog> {
     }
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.modalName = this.props.aName ? this.props.aName : '';
   }
 

@@ -1,6 +1,6 @@
 /* eslint-disable */
-import { NavBarConstants } from "../../ConstConfig";
-import { UserOps } from "../../ConstConfig/UserOps";
+import { NavBarConstants } from '../../ConstConfig';
+import { UserOps } from '../../ConstConfig/UserOps';
 export function getAttrib(stateObj: any, attribName: any) {
   if (stateObj && stateObj.hasOwnProperty(attribName)) {
     return stateObj[attribName];
@@ -24,6 +24,24 @@ export function isAudienceInvokedWithNew(stateObj: any) {
   return false;
 }
 
+export function getActionType(stateObj: any, actionType:any) {
+  let actionObjArr = {
+    'LISTTRAITS':{slickIdx:NavBarConstants.AUDIENCETRAITSLICK,actionType:UserOps.GET_TRAITS},
+    'LISTCRM': {slickIdx:NavBarConstants.ADMINCRMSTATUSSLICK,actionType:UserOps.GET_CRMList},
+    'LISTUSER': {slickIdx:NavBarConstants.ADMINSLICK,actionType:UserOps.GET_USERS},
+    'LISTREPORTINGBANER':{slickIdx:NavBarConstants.ADMINSLICK,actionType:UserOps.REPORTING_STATUS},
+  }
+  const slickStateObj = getAttrib(stateObj, 'data');
+  if (
+    slickStateObj &&
+    getAttrib(slickStateObj, 'UserAction') &&
+    slickStateObj.UserAction === 'SlickPosition' &&
+    getAttrib(slickStateObj, 'source') && actionObjArr[slickStateObj.source])
+    {
+    return actionObjArr[slickStateObj.source].actionType;
+  }
+  return actionType;
+}
 export function isAdminListInvokedWithNew(stateObj: any) {
   const slickStateObj = getAttrib(stateObj, "data");
   if (
@@ -331,7 +349,14 @@ export function getActionTypeForConfirmOperation(
     } else if (
       DialogData.hasOwnProperty("content") &&
       DialogData.content &&
-      DialogData.content.hasOwnProperty("deleteAudience") &&
+      DialogData.content.hasOwnProperty('deleteInvokedBy') &&
+      DialogData.content.deleteInvokedBy === 'CynchAttributes'
+    ) {
+      return UserOps.DELETE_CYNCHATTRIB;
+    } else if (
+      DialogData.hasOwnProperty('content') &&
+      DialogData.content &&
+      DialogData.content.hasOwnProperty('deleteAudience') &&
       DialogData.content.deleteAudience
     ) {
       return UserOps.DELETE_AUDIENCE_SEGMENT;
@@ -397,6 +422,10 @@ export function getTraitActionInited(stateObj: any) {
     return UserOps.TRAIT_MOVE_UP;
   } else if (userObj && userObj === UserOps.TRAIT_MOVE_DOWN) {
     return UserOps.TRAIT_MOVE_DOWN;
+  } else if (userObj && userObj === UserOps.ADD_ATTRIBUTE) {
+    return UserOps.ADD_ATTRIBUTE;
+  } else if (userObj && userObj === UserOps.EDIT_ATTRIBUTE) {
+    return UserOps.EDIT_ATTRIBUTE;
   }
 
   return false;
@@ -429,14 +458,49 @@ export function isSprtTraitActionInited(stateObj: any) {
   return false;
 }
 
+
+export function isEditAttribute(stateObj: any) {
+  const userObj = getAttrib(stateObj, 'userAction');
+  if (
+    (userObj && userObj === UserOps.EDIT_ATTRIBUTE) ||
+    userObj === UserOps.EDIT_ATTRIBUTE
+  ) {
+    return true;
+  }
+  return false;
+}
+
+
+export function isAddAttribute(stateObj: any) {
+  const userObj = getAttrib(stateObj, 'userAction');
+  if (
+    (userObj && userObj === UserOps.ADD_ATTRIBUTE) ||
+    userObj === UserOps.ADD_ATTRIBUTE
+  ) {
+    return true;
+  }
+  return false;
+}
+
 export function getTraitSelectedOperaion(stateObj: any, action: any) {
   let returnAction = action;
   if (
     isAddTraitActionInited(stateObj) ||
     isEditTraitActionInited(stateObj) ||
-    isSprtTraitActionInited(stateObj)
+    isSprtTraitActionInited(stateObj) ||
+    isAddAttribute(stateObj) ||
+    isEditAttribute (stateObj)
   ) {
     returnAction = getTraitActionInited(stateObj);
+  }
+  return returnAction;
+}
+
+export function getReportingStateOperaion(stateObj: any, action: any) {
+  let returnAction = action;
+  const userObj = getAttrib(stateObj, 'userAction');
+  if (userObj && userObj === UserOps.SET_REPORTING_STATUS) {
+    returnAction = UserOps.SET_REPORTING_STATUS;
   }
   return returnAction;
 }

@@ -24,7 +24,7 @@ class SegmentModal extends React.Component<ISegmentModal> {
     this.categoryID = '';
    }
 
-  componentWillMount() {}
+  UNSAFE_componentWillMount() {}
 
   /*
         handle user operation on Save button

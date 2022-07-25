@@ -246,9 +246,7 @@ export const requestCRMStat = createAction<any>(ActionConstants.LISTALL_CRM);
     //   data: any
     // ) => ReduxActions.Action<any>;
     
-    // export const updateDashboardCharts = createAction<any>(ActionConstants.DASHBOARD_CHARTS) as (
-    //   data: any
-    // ) => ReduxActions.Action<any>;
+    export const updateDashboardCharts = createAction<any>(ActionConstants.DASHBOARD_CHARTS);
     
     export const sendAdminCynchAttributeListAction = createAction<any>(ActionConstants.CYNCHATTRIBUTES);
     export const sendCynchCategoryAction = createAction<any>(ActionConstants.CYNCHATTRIUPDATE);

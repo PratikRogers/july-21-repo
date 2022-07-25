@@ -66,30 +66,49 @@ const reduiCRMUploaderMiddleWare = (store: any) => (next: any) => (action: any) 
                 console.log('CRMUploader: Inside then(res =>', res);
                 cancelTokenSource.cancel(); // Cancel reques
                // return res.data;
-               console.log('Sending the 100%');
+               
+                    console.log('Sending the 100%');
                     store.dispatch(updateProgressCRM({ data: { loaded: 100, total: 100 } }));
-                    store.dispatch(updateCRMStateMessage({ data: { msg: "Thank you, your file has been received and we're processing the following columns: " + res.data.validHeaders.join(', ') } }));
+        
+                    if (res.data.hasOwnProperty('status') && (res.data.status === false || res.data.status === null)) {
+                      store.dispatch(updateCRMStateMessage({ data: { msg: 'File upload operation failed. Please try again later' } }));
+                    } else if (res.data.hasOwnProperty('status') && (res.data.status === 'Failure')) {
+                      store.dispatch(updateCRMStateMessage({ data: { msg: res.data.message } }));
+                    } else {
+                      store.dispatch(updateCRMStateMessage({ data: { msg: "Thank you, your file has been received and we're processing the following columns: " + res.data.validHeaders.join(', ') } }));
                       const dummyUserObj = { type: UserOps.LISTALL_CRM, data: { url: action.payload.data.crmReportUrl, type: UserOps.LISTALL_CRM } };
         
                       store.dispatch(requestCRMStat(dummyUserObj));
                       dummyUserObj.data.url = '';
                       dummyUserObj.data.type = UserOps.NONE;
                       store.dispatch(requestCRMStat(dummyUserObj)); ({ url: '', type: '' });
+                    }
+
                 
             }).catch((error) => {
+              console.log('CRMUploader: error =>', error);
                 console.log(error.config);
                 console.log(error.config);
                 if (error.response) {
+              console.log('CRMUploader: error.response =>', error.response);
+
                   // console.log("Failed ",error.response.data);
                   Logger.getInstance().printWarnLogs("Status with failure", error?.response?.status);
                   // console.log(error.response.headers);
               } else if (error.request) {
+              console.log('CRMUploader: error.request =>', error.request);
+
                   Logger.getInstance().printWarnLogs(error?.request);
               } else {
+              console.log('CRMUploader: error.message =>', error.message);
+
                   Logger.getInstance().printWarnLogs('Error', error.message);
               }
               // console.log(error.config);
+              console.log('CRMUploader: error.response.status =>', error.response.status);
+              console.log('CRMUploader: error.response.data =>', error.response.data);
               if(error?.response && error?.response?.status)
+
               return { status: error.response.status, errorData: error.response.data };
               else 
               return { status: 500, errorData: "" };

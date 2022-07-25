@@ -23,7 +23,7 @@ class CynchCategory extends React.Component<ICynchCategory, {}> {
     this.state = this.props.categoryItem;
   }
 
-  componentWillReceiveProps(newProps: any) {
+  UNSAFE_componentWillReceiveProps(newProps: any) {
     this.setState({ ...this.state, newProps });
   }
 

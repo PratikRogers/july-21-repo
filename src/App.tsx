@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { connect } from "react-redux";
 // import {  addLocaleData } from "react-intl";
-/* eslint-disable */
+
 import * as React from 'react';
 // import BottomPanelBar from "./Panel/BottomPanelBar";
 import TitleBar from "./Panel/TitleBar";
@@ -17,7 +17,7 @@ import Logger from "./rogersframework/Logger/Logger";
 import { LOGLEVEL } from "./ConstConfig/logLevelConst";
 import PropTypes from "prop-types";
 
-import { Route, Routes } from "react-router-dom";
+import { Route } from "react-router-dom";
 import RedUISpinner from "./Panel/RedUISpinner";
 // import AccessError from "./Login/Component/AccessError";
 import AuthProvider from "./Login/MSAL/AuthProvider";
@@ -27,10 +27,12 @@ import CRMUploaderFormComponent from "./CRMUploader/Component/CRMUploaderFormCom
 // import UnAssignedPage from "./Login/Component/UnAssignedPage";
 import MessageBox from "./CommonComponent/MessageBox";
 import BottomPanelBar from "./Panel/BottomPanelBar";
-import AccessError from "./Login/Component/AccessError";
+// import AccessError from "./Login/Component/AccessError";
 import IntlProvider from "react-intl/src/components/provider";
-// import AdminLandingPage from "./Admin/AdminLandingPage";
-// import AdminCRMStatus from "./Admin/Component/AdminCRMStatus";
+// import UnAssignedPage from "./Login/Component/UnAssignedPage";
+import AdminLandingPage from "./Admin/AdminLandingPage";
+import AccessError from "./Login/Component/AccessError";
+import AdminCRMStatus from "./Admin/Component/AdminCRMStatus";
 // import AdminUserList from "./Admin/Component/AdminUserList";
 // const possibleLocale = navigator.language.split("-")[0] || "en";
 // addLocaleData(require(`react-intl/locale-data/${possibleLocale}`));
@@ -75,9 +77,9 @@ class App extends React.Component<IApp, {}> {
     this.allRoutes = [
       { path: "/CRMUploader", component: CRMUploaderFormComponent },
       { path: "/Terminology", component: Terminology },
-      // { path: '/Admin', component: AdminLandingPage },
+      { path: '/Admin', component: AdminLandingPage },
       // { path: '/AdminUsersList', component: AdminUserList },
-      // { path: '/AdminCRMStatus', component: AdminCRMStatus },
+      { path: '/AdminCRMStatus', component: AdminCRMStatus },
 
 
 
@@ -88,12 +90,10 @@ class App extends React.Component<IApp, {}> {
   }
 
   isRoleExistForRoute(routeItem: any) {
-    console.log("routeItem===", routeItem);
     if (routeItem && routeItem.path !== "") {
       const index = this.assignedRoutes.findIndex(
         (obj: any) => obj == routeItem.path
       );
-      console.log("index===", index);
 
       if (index >= 0) {
         console.log('returning true');
@@ -109,11 +109,12 @@ class App extends React.Component<IApp, {}> {
 
       if (this.isRoleExistForRoute(routeItem)) {
         return (
-          <Route key={i} path={routeItem.path} element={<routeItem.component/>} />
+          <Route key={i} path={routeItem.path}  component={routeItem.component} />
+          
         );
       }  
        else {
-        return <Route key={i} path={routeItem.path} element={<AccessError />} />
+        return null;
         
       }
 
@@ -136,13 +137,15 @@ class App extends React.Component<IApp, {}> {
       <div className="redUI">
         <TitleBar />
         <RedUISpinner UIConfStats={spinnerState} />
-        {/* <AdminLandingPage propsFromStore={''} history={'/'}/> */}
-        {/* <CRMUploaderFormComponent /> */}
+        {/* <AdminCRMStatus handleChange={undefined} loggingIn={undefined} history={undefined} /> */}
+       
         {this.props.isLoginSuccessful ? (
-          <Routes>
-            {this.getAllRoutes()}
-            <Route path={"/"} element={<CRMUploaderFormComponent />} />
-          </Routes>
+           <CRMUploaderFormComponent />
+            // <Switch>
+            // {this.getAllRoutes()}
+            // {/* <Route path={"/"} element={<AdminLandingPage propsFromStore={''} history={'/'} />} /> */}
+            // <Route path={'/'} component={AdminLandingPage} />
+            // </Switch>
         ) : (
           <AccessError />
         )}

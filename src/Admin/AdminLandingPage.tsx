@@ -180,7 +180,7 @@ class AdminLandingPage extends React.Component<IAdminLandingPage, {}> {
                   return (
                     <li id={row.id} key={row.title}>
                       <a
-                        href="#"
+                        href={row.path}
                         onClick={this.itemSelected.bind(this, row)}
                       >
                         {' '}

@@ -1,5 +1,4 @@
 /* eslint-disable */
-/* eslint-disable */
 import * as React from 'react';
 import { connect } from "react-redux";
 
@@ -11,7 +10,7 @@ import {
   sendAdminAudienceTraitPaginationAction,
 } from "../../Actions";
 import { NavBarConstants } from "../../ConstConfig";
-import { FormattedNumber } from "react-intl";
+// import { FormattedNumber } from "react-intl";
 import ConfirmDialog from "../../CommonComponent/ConfirmDialog";
 import {
   
@@ -28,16 +27,16 @@ import MessageBox from "../../CommonComponent/MessageBox";
 import Logger from "../../rogersframework/Logger/Logger";
 
 class AdminCRMStatus extends React.Component<IAdminCRMStatus, {}> {
-  private searchText: any;
-  private tableProps: any;
-  private pageObject: any;
-  private sortedColumn: any;
-  private selectedRole: any;
-  private static MAX_ROWSIZE = 25;
-  private timer: any;
-  private tableRef: any;
-  private dropDownRef: any;
-  private rtBtstrpTableRef: any;
+   searchText: any;
+   tableProps: any;
+   pageObject: any;
+   sortedColumn: any;
+   selectedRole: any;
+   static MAX_ROWSIZE = 25;
+   timer: any;
+   tableRef: any;
+   dropDownRef: any;
+   rtBtstrpTableRef: any;
 
   constructor(props: any) {
     super(props);
@@ -85,7 +84,9 @@ class AdminCRMStatus extends React.Component<IAdminCRMStatus, {}> {
     // this.searchText = e.target.value;
     this.tableProps.search(this.searchText);
   }
-
+  UNSAFE_componentWillMount() {
+    console.log(" populateCRMListTable called componentWillMount");
+}
   searchTextInTable() {
     if (this.searchText && this.searchText != "")
       this.tableProps.search(this.searchText);
@@ -94,6 +95,7 @@ class AdminCRMStatus extends React.Component<IAdminCRMStatus, {}> {
   /*
         Search Panel
     */
+   
   getUserSelecctedRolePanel() {
     let roleTag = "All ";
     let roleTxt = " CATEGORY";
@@ -254,12 +256,13 @@ class AdminCRMStatus extends React.Component<IAdminCRMStatus, {}> {
     if (cell && cell !== "") {
       return (
         <span className={style}>
-          <FormattedNumber
+          {cell.toString()}
+          {/* <FormattedNumber
             value={cell.toString()}
             style="decimal"
             minimumFractionDigits={0}
             maximumFractionDigits={0}
-          />
+          /> */}
         </span>
       );
     }
@@ -645,6 +648,7 @@ function mapStateToProps(state: any) {
 export default connect(
   mapStateToProps,
   (dispatch) => {
+    console.log("Admin CRMUploads => Inside export default connect");
     return {
       handleSubmit: (dummyUserObj: any) => {
         dispatch(slickStateAction(dummyUserObj));

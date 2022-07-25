@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { IAdminUserist, IAdminUser } from './IAdminUser';
 import { List } from 'immutable';
 

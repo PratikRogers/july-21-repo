@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { List } from 'immutable';
 import { IAudienceTraitList, IAudienceTrait } from './IAudienceTraitModel';
 import { getTraitTypeText } from '../utils/dashboardValidation';

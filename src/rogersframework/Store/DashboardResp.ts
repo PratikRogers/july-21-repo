@@ -24,7 +24,28 @@ export function getDashboardGenderResponsePayload(returnVal: any) {
     return respObj;
 }
  
+export function findDiffInDays(date1: any) {
+    
+  if (date1  && date1 !== ""  ) {
+      date1 = date1.replace(/-/g,"/");
+      date1 = new Date(date1);
+      date1.setHours(0,0,0,0)
+      const date2 = new Date();
+      date2.setHours(0,0,0,0);
+ 
+      var one_day = 1000 * 60 * 60 * 24;
 
+      // Convert both dates to milliseconds
+      var date1_ms = date1.getTime();
+      var date2_ms = date2.getTime();
+
+      // Calculate the difference in milliseconds
+      var difference_ms = date2_ms - date1_ms;
+      return Math.round(difference_ms / one_day);
+  }
+  return -1;
+
+}
 export function getDashboardGeoMapResponsePayload(returnVal:any, geoMapCache:any, date:any,cIndex:any) {
     let respObj ={GeoMapAPIData:{}};
     if (returnVal && returnVal.hasOwnProperty("geoMaps") && returnVal.geoMaps.length > 0) {

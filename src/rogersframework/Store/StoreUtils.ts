@@ -16,11 +16,14 @@ export class StoreUitls {
      clnt: any;
      store: any;
      urlConfig: any;
+    adminUtil: any;
+     
  
-    constructor(pStore: any, client: any, urlConf: any, adalAuthCtx: any) {
+    constructor(pStore: any, client: any, urlConf: any, adalAuthCtx: any,adminStoreUtil: any) {
         this.clnt = client;
         this.store = pStore;
         this.urlConfig = urlConf;
+        this.adminUtil = adminStoreUtil;
      }
 
      getAuhObj() {

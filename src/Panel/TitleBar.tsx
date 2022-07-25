@@ -295,7 +295,7 @@ class TitleBar extends React.Component<ITitleBar, {}> {
                aria-expanded="false"
                data-toggle="dropdown"
                id="navbarDropdown"
-               href="#"
+               href={menuItem.urlPath}
              >
                {menuItem.title}
              </a>
@@ -305,14 +305,14 @@ class TitleBar extends React.Component<ITitleBar, {}> {
              >
                <a
                  className={this.getReportingMenuCls(UserOps.REPORTINGDIGITAL)}
-                 href="#"
+                 href={menuItem.urlPath}
                  onClick={this.handleChange.bind(this, menuItem)}
                >
                 DIGITAL
                </a>
                <a
                  className={this.getReportingMenuCls(UserOps.REPORTINGTV)}
-                 href="#"
+                 href={menuItem.urlPath}
                  onClick={this.handleChange.bind(this, this.tvMenu)}
                >
                 TV
@@ -333,7 +333,7 @@ class TitleBar extends React.Component<ITitleBar, {}> {
            <a
              key={i + 'A'}
              className="nav-link"
-             href="#"
+             href={menuItem.urlPath}
              onClick={this.handleChange.bind(this, menuItem)}
            >
              {menuItem.title}

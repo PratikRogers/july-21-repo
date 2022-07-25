@@ -1,11 +1,11 @@
 /* eslint-disable */
 import { MsalAuthProvider, LoginType } from 'react-aad-msal';
-// import {UserAgentApplication} from 'msal';
+import {UserAgentApplication} from 'msal';
  
 // Msal Configurations
  const config = {
   auth: {
-    authority: 'https://login.microsoftonline.com/common',
+    authority: 'https://login.microsoftonline.com/0ab4cbbf-4bc7-4826-b52c-a14fed5286b9',
     clientId: '4511df5a-b8cc-4fb5-bf1c-b01b807a8769',
     replyUrl: window.location.origin
   }, 
@@ -29,4 +29,4 @@ const options = {
 }
  
 export const authProvider = new MsalAuthProvider(config, authenticationParameters, options)
-// export const myMSALObj = new UserAgentApplication(config);
+ export const myMSALObj = new UserAgentApplication(config);
