@@ -128,9 +128,9 @@ class App extends React.Component<IApp, {}> {
       this.props.isLoginSuccessful
     );
     const spinnerState = { UIConfig: { isSpinnerActive: true } };
-    if (!this.props.account) {
-      this.props.onSignIn();
-    }
+   // if (!this.props.account) {
+    //  this.props.onSignIn();
+    //}
 
     return (
       <IntlProvider locale={this.language} messages={this.localizationMessages[this.language]}>

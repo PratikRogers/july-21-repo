@@ -3,8 +3,8 @@
   "version": "2.2.0",
   "private": true,
   "homepage": "/",
-  "proxy1": "https://10.73.186.42:8098/",
-  "proxy": "https://localhost:8098/",
+  "proxy": "https://10.73.186.42:8098/",
+  "proxy2": "https://localhost:8098/",
   "dependencies": {
     "-": "^0.0.1",
     "@popperjs/core": "^2.11.5",
