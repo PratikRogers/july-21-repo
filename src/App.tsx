@@ -17,7 +17,7 @@ import Logger from "./rogersframework/Logger/Logger";
 import { LOGLEVEL } from "./ConstConfig/logLevelConst";
 import PropTypes from "prop-types";
 
-import { Route } from "react-router-dom";
+import { Route,  Switch } from "react-router-dom";
 import RedUISpinner from "./Panel/RedUISpinner";
 // import AccessError from "./Login/Component/AccessError";
 import AuthProvider from "./Login/MSAL/AuthProvider";
@@ -138,14 +138,13 @@ class App extends React.Component<IApp, {}> {
         <TitleBar />
         <RedUISpinner UIConfStats={spinnerState} />
         {/* <AdminCRMStatus handleChange={undefined} loggingIn={undefined} history={undefined} /> */}
-       
+        {/* <CRMUploaderFormComponent /> */}
         {this.props.isLoginSuccessful ? (
-           <CRMUploaderFormComponent />
-            // <Switch>
-            // {this.getAllRoutes()}
-            // {/* <Route path={"/"} element={<AdminLandingPage propsFromStore={''} history={'/'} />} /> */}
-            // <Route path={'/'} component={AdminLandingPage} />
-            // </Switch>
+            <Switch>
+            {this.getAllRoutes()}
+            {/* <Route path={"/"} element={<AdminLandingPage propsFromStore={''} history={'/'} />} /> */}
+            <Route path={'/'} component={AdminLandingPage} />
+            </Switch>
         ) : (
           <AccessError />
         )}

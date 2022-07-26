@@ -206,16 +206,16 @@ export default flow(
         }
       }
       async componentDidMount() {
-        // msalApp.handleRedirectCallback(error => {
-        //     if (error) {
-        //         const errorMessage = error.errorMessage ? error.errorMessage : "Unable to acquire access token.";
-        //         console.log("Error messeage in Component Mount",errorMessage)
-        //         // setState works as long as navigateToLoginRequestUrl: false
-        //         this.setState({
-        //             error: errorMessage
-        //         });
-        //     }
-        // });
+        msalApp.handleRedirectCallback(error => {
+            if (error) {
+                const errorMessage = error.errorMessage ? error.errorMessage : "Unable to acquire access token.";
+                console.log("Error messeage in Component Mount",errorMessage)
+                // setState works as long as navigateToLoginRequestUrl: false
+                this.setState({
+                    error: errorMessage
+                });
+            }
+        });
         const account = msalApp.getAccount();
         this.setState({
           account,
