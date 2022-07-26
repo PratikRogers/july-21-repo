@@ -118,7 +118,7 @@ function getCRMUploader() {
         return window.location.origin;
     }
     console.log("hostname at auth-utils.ts file ==>", hostname);
-    return window.location.origin+"/CRMUploader";
+    return window.location.origin;
 
 }
 
