@@ -68,7 +68,7 @@ class CRMUploaderFormComponent extends React.Component<ICRMUploaderFormComponent
         console.log(" populateCRMListTable called");
 
         console.log('UserOps.LISTALL_CRM ==', UserOps.LISTALL_CRM );
-        this.props.initCRMList({ url: this.config.getCRMListUrl(), type: UserOps.LISTALL_CRM });
+        this.props.initCRMList({ url: this.config.getCRMListComponentUrl(), type: UserOps.LISTALL_CRM });
         this.props.initCRMList({ url: "", type: "" });
     }
 
@@ -131,7 +131,7 @@ class CRMUploaderFormComponent extends React.Component<ICRMUploaderFormComponent
     }
 
      handleSubmit(e: any) {
-        this.props.handleClicks({ url: this.config.getCRMFileUploadUrl(), type: UserOps.UPLOAD_FILE, payload: this.formData, fileSize: this.fileDetail.size, crmReportUrl: this.config.getCRMListUrl()});
+        this.props.handleClicks({ url: this.config.getCRMFileUploadUrl(), type: UserOps.UPLOAD_FILE, payload: this.formData, fileSize: this.fileDetail.size, crmReportUrl: this.config.getCRMListComponentUrl()});
         this.setState({ uploadBtnDisabled: " disabled ", browseBtnDisabled: " disabled ", fileName: this.state.fileName, fileTransInited: true });
         this.props.resetUserMessage();
         e.preventDefault();

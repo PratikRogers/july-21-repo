@@ -28,7 +28,7 @@ const reduiCRMUploaderMiddleWare = (store: any) => (next: any) => (action: any) 
           return;
         }
 
-        console.log('CRMUploader: Inside postFiles');
+        
         const contType = "Content-Type";
         axios.defaults.headers.common.Accept = "application/json";
         axios.defaults.headers.post[contType] = "multipart/form-data";
@@ -40,6 +40,7 @@ const reduiCRMUploaderMiddleWare = (store: any) => (next: any) => (action: any) 
             console.log("The payload is empty");
         }
         const cancelTokenSource = axios.CancelToken.source();
+        console.log('CRMUploader: Inside postFiles ==>', reqObjectSeg);
         return axios({
             data: filePayload,
             method: 'post',
@@ -114,38 +115,45 @@ const reduiCRMUploaderMiddleWare = (store: any) => (next: any) => (action: any) 
               return { status: 500, errorData: "" };
                
             });
-    
-
-     
-        // clnt.postFiles(reqObjectSeg, filePayload).then((returnVal: any) => {
-        //   console.log('returnVal===', returnVal);
-        //   if ((returnVal.hasOwnProperty('status') && returnVal.status >= 400 && returnVal.status < 600)) {
-        //     const messageBoxObj = { Dialog: { MessageBox: { isVisible: true, UserMessage: ' Unable to upload the file', saveFailed: false, boxButtons: UserOps.OK, messageHead: 'Error!', popupAuto: true } } };
-
-        //     store.dispatch(submitUIConfigAction(messageBoxObj));
-        //   } else {
-        //     console.log('Sending the 100%');
-        //     store.dispatch(updateProgressCRM({ data: { loaded: 100, total: 100 } }));
-
-        //     if (returnVal.hasOwnProperty('status') && (returnVal.status === false || returnVal.status === null)) {
-        //       store.dispatch(updateCRMStateMessage({ data: { msg: 'File upload operation failed. Please try again later' } }));
-        //     } else if (returnVal.hasOwnProperty('status') && (returnVal.status === 'Failure')) {
-        //       store.dispatch(updateCRMStateMessage({ data: { msg: returnVal.message } }));
-        //     } else {
-        //       store.dispatch(updateCRMStateMessage({ data: { msg: "Thank you, your file has been received and we're processing the following columns: " + returnVal.validHeaders.join(', ') } }));
-        //       const dummyUserObj = { type: UserOps.LISTALL_CRM, data: { url: action.payload.data.crmReportUrl, type: UserOps.LISTALL_CRM } };
-
-        //       store.dispatch(requestCRMStat(dummyUserObj));
-        //       dummyUserObj.data.url = '';
-        //       dummyUserObj.data.type = UserOps.NONE;
-        //       store.dispatch(requestCRMStat(dummyUserObj)); ({ url: '', type: '' });
-        //     }
-
-        //   }
-
-        // });
       }
         break;
+        case "UPLOADCRM-oldcall": {
+          const reqObjectSeg = { authToken: token, url: action.payload.data.url };
+          const filePayload = action.payload.data.payload;
+          if (action.payload.data.fileSize > 524288000) {
+            const messageBoxObj = { Dialog: { MessageBox: { isVisible: true, UserMessage: " This file is too large for processing", saveFailed: false, boxButtons: UserOps.OK, messageHead: "Error!", popupAuto: true } } };
+            store.dispatch(submitUIConfigAction(messageBoxObj));
+            return;
+          }
+          clnt.postFiles(reqObjectSeg, filePayload).then((returnVal: any) => {
+            if ((returnVal.hasOwnProperty("status") && returnVal.status >= 400 && returnVal.status < 600)) {
+              const messageBoxObj = { Dialog: { MessageBox: { isVisible: true, UserMessage: " Unable to upload the file", saveFailed: false, boxButtons: UserOps.OK, messageHead: "Error!", popupAuto: true } } };
+              store.dispatch(submitUIConfigAction(messageBoxObj));
+            }
+            else {
+              console.log("Sending the 100%")
+              store.dispatch(updateProgressCRM({ data: { loaded: 100, total: 100 } }));
+  
+              if (returnVal.hasOwnProperty("status") && (returnVal.status === false || returnVal.status === null)) {
+                store.dispatch(updateCRMStateMessage({ data: { msg: "File upload operation failed. Please try again later" } }));
+              }
+              else if (returnVal.hasOwnProperty("status") && (returnVal.status === "Failure")) {
+                store.dispatch(updateCRMStateMessage({ data: { msg: returnVal.message } }));
+              }
+              else {
+                store.dispatch(updateCRMStateMessage({ data: { msg: "Thank you, your file has been received and we're processing the following columns: " + returnVal.validHeaders.join(", ") } }));
+                const dummyUserObj = { type: UserOps.LISTALL_CRM, data: { url: action.payload.data.crmReportUrl, type: UserOps.LISTALL_CRM } };
+                store.dispatch(requestCRMStat(dummyUserObj));
+                dummyUserObj.data.url = "";
+                dummyUserObj.data.type = UserOps.NONE;
+                store.dispatch(requestCRMStat(dummyUserObj)); ({ url: "", type: "" });
+              }
+  
+            }
+  
+          });
+        }
+          break;
       case 'LISTALL_CRM': {
        console.log("CRM Uplods => Inside LISTALL_CRM ");
         const reqObjectSeg = { authToken: token, url: action.payload.data.url };

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { findDiffInDays } from "src/Utility/CampaignUtil";
 
 export class SegmentModel {

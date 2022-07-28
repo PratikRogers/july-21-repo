@@ -59,6 +59,8 @@ export class StoreUitls {
         const reqObject = { userName: "", url: "", password: "", serviceName: "", authToken: "" };
         reqObject.url = this.urlConfig.getUserRoleUrl();
         reqObject.authToken = authorizationResponse.authToken;
+        console.log("inside store utils=> call user role api");
+        
 
         this.clnt.getResponse(reqObject.url, reqObject).then((returnVal: any) => {
             if (returnVal.hasOwnProperty("status") && returnVal.status >= 400 && returnVal.status < 600) {
@@ -101,6 +103,7 @@ export class StoreUitls {
         // this.autoRefresh();
         let spinnerState = { UIConfig: { isSpinnerActive: true } };
         this.store.dispatch(submitSpinnerAction(spinnerState));
+        console.log("Inside login method");
         if (useSSO) {
             let reqObject = { userName: "", url: "", password: "", serviceName: "", authToken: "" };
             reqObject.url = this.urlConfig.segmentGetUrl;

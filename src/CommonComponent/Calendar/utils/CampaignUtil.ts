@@ -1,3 +1,4 @@
+/* eslint-disable */
 export function getTomorrowsDate() {
     const reqDate = new Date();
 

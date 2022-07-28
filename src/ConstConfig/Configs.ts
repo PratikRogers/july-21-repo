@@ -2,181 +2,174 @@
 import { UserOps } from "./UserOps";
 
 export class Configs {
+  baseUrl: any;
+  apiPath: any;
+  port: number;
+  prefix: string;
+  loginUrl: any;
+  logoutUrl: any;
+  segmentGetUrl: any;
+  segmentPostUrl: any;
+  segmentAdvanceModeUrl: string;
 
-     baseUrl: any;
-     apiPath: any;
-     port: number;
-     prefix: string;
-     loginUrl: any;
-     logoutUrl: any;
-     segmentGetUrl: any;
-     segmentPostUrl: any;
-     segmentAdvanceModeUrl: string;
+  audienceListUrl: string;
+  audienceEditListUrl: string;
+  deleteAudienceListUrl: string;
+  saveAudienceListUrl: string;
+  overwriteAudienceListUrl: string;
 
+  dashboardUrl: String;
+  dashboardGeopMapUrl: String;
+  dashboardPreflightAPIUrl: String;
+  dashboardLineChartAPIUrl: String;
 
-     audienceListUrl: string;
-     audienceEditListUrl: string;
-     deleteAudienceListUrl: string;
-     saveAudienceListUrl: string;
-     overwriteAudienceListUrl: string;
+  insightsAListAPI: String;
+  insightsAdvModeApi: String;
+  insightsASizerAPI: String;
 
-     dashboardUrl: String;
-     dashboardGeopMapUrl: String;
-     dashboardPreflightAPIUrl: String;
-     dashboardLineChartAPIUrl: String;
+  emailUrl: String;
 
-     insightsAListAPI: String;
-     insightsAdvModeApi: String;
-     insightsASizerAPI: String;
+  userRoleUrl: String;
+  adminUserUrl: String;
+  audienceTraitUrl: String;
+  audienceTraitSortUrl: String;
 
-     emailUrl: String;
+  reportSerachUrl: String;
+  reportDownloadUrl: String;
+  reportListUrl: String;
 
-     userRoleUrl: String;
-     adminUserUrl: String;
-     audienceTraitUrl: String;
-     audienceTraitSortUrl: String;
+  campaignStatusUrl: String;
+  cmrFileUploadUrl: String;
+  crmListUrl: String;
 
+  getAudienceListUrl() {
+    return this.audienceListUrl;
+  }
+  getEditAudienceListUrl() {
+    return this.audienceEditListUrl;
+  }
+  getDeleteAudienceListUrl() {
+    return this.deleteAudienceListUrl;
+  }
+  getSaveAudienceListUrl(overWrite?: any) {
+    if (overWrite && overWrite === true) {
+      return this.overwriteAudienceListUrl;
+    }
+    return this.saveAudienceListUrl;
+  }
 
-     reportSerachUrl: String;
-     reportDownloadUrl: String;
-     reportListUrl: String;
+  getDashboardUrl() {
+    return this.dashboardUrl;
+  }
+  getGeoMapUrl() {
+    return this.dashboardGeopMapUrl;
+  }
+  getDashboardPreflightAPIUrl() {
+    return this.dashboardPreflightAPIUrl;
+  }
 
-     campaignStatusUrl: String;
-     cmrFileUploadUrl: String;
-     crmListUrl: String;
+  getLineChartUrl() {
+    return this.dashboardLineChartAPIUrl;
+  }
 
+  getCampaignEmailUrl() {
+    return this.emailUrl;
+  }
 
-     getAudienceListUrl() {
-        return this.audienceListUrl;
+  getInsightsAPI(source: any) {
+    if (source === UserOps.AUDIENCELIST) {
+      return this.insightsAListAPI;
     }
-     getEditAudienceListUrl() {
-        return this.audienceEditListUrl;
-    }
-     getDeleteAudienceListUrl() {
-        return this.deleteAudienceListUrl;
-    }
-     getSaveAudienceListUrl(overWrite?: any) {
-        if (overWrite && overWrite === true) {
-            return this.overwriteAudienceListUrl
-        }
-        return this.saveAudienceListUrl;
-    }
+    return this.insightsASizerAPI;
+  }
 
-     getDashboardUrl() {
-        return this.dashboardUrl;
-    }
-     getGeoMapUrl() {
-        return this.dashboardGeopMapUrl;
-    }
-     getDashboardPreflightAPIUrl() {
-        return this.dashboardPreflightAPIUrl;
-    }
+  getInsightsAdvanceModeAPI() {
+    return this.insightsAdvModeApi;
+  }
 
-     getLineChartUrl() {
-        return this.dashboardLineChartAPIUrl;
-    }
+  /* Admin APIs */
+  getUserRoleUrl() {
+    return this.userRoleUrl;
+  }
+  getListUsersUrl() {
+    return this.adminUserUrl;
+  }
+  getEditUserUrl() {
+    return this.adminUserUrl;
+  }
+  getDeleteUserUrl() {
+    return this.adminUserUrl;
+  }
+  getAddUserUrl() {
+    return this.adminUserUrl;
+  }
 
-     getCampaignEmailUrl() {
-        return this.emailUrl;
-    }
+  getListAudienceTraitUrl() {
+    return this.audienceTraitUrl;
+  }
+  getEditAudienceTraitUrl() {
+    return this.audienceTraitUrl;
+  }
+  getDeleteAudienceTraitUrl() {
+    return this.audienceTraitUrl;
+  }
+  getSortAudienceTraitUrl() {
+    return this.audienceTraitSortUrl;
+  }
 
-     getInsightsAPI(source: any) {
-        if (source === UserOps.AUDIENCELIST) {
-            return this.insightsAListAPI;
-        }
-        return this.insightsASizerAPI;
-    }
+  getReportSearchUrl() {
+    return this.reportSerachUrl;
+  }
+  getReportDownloadUrl() {
+    return this.reportDownloadUrl;
+  }
+  getReportListUrl() {
+    return this.reportListUrl;
+  }
 
-     getInsightsAdvanceModeAPI() {
-        return this.insightsAdvModeApi;
-    }
+  getCampaignStatusUrl() {
+    return this.campaignStatusUrl;
+  }
 
-    /* Admin APIs */
-     getUserRoleUrl() {
-        return this.userRoleUrl;
-    }
-     getListUsersUrl() {
-        return this.adminUserUrl;
-    }
-     getEditUserUrl() {
-        return this.adminUserUrl;
-    }
-     getDeleteUserUrl() {
-        return this.adminUserUrl;
-    }
-     getAddUserUrl() {
-        return this.adminUserUrl;
-    }
+  getAdvanceModeAPIUrl() {
+    return this.segmentAdvanceModeUrl;
+  }
 
+  getCRMListComponentUrl() {
+    return this.crmListUrl;
+  }
 
-     getListAudienceTraitUrl() {
-        return this.audienceTraitUrl;
-    }
-     getEditAudienceTraitUrl() {
-        return this.audienceTraitUrl;
-    }
-     getDeleteAudienceTraitUrl() {
-        return this.audienceTraitUrl;
-    }
-     getSortAudienceTraitUrl() {
-        return this.audienceTraitSortUrl;
-    }
+  /* File */
 
-     getReportSearchUrl() {
-        return this.reportSerachUrl;
-    }
-     getReportDownloadUrl() {
-        return this.reportDownloadUrl;
-    }
-     getReportListUrl() {
-        return this.reportListUrl;
-    }
-    
+  getCRMFileUploadUrl() {
+    return this.cmrFileUploadUrl;
+  }
+  public getCRMListUrl() {
+    return this.crmStatListUrl;
+  }
 
-     getCampaignStatusUrl() {
-        return this.campaignStatusUrl;
-    }
+  // Added for admin rule
 
-     getAdvanceModeAPIUrl() {
-        return this.segmentAdvanceModeUrl;
-    }
-
-    //  getCRMListUrl(){
-    //     return this.crmListUrl;
-    // }
-
-    /* File */
-    
-    getCRMFileUploadUrl() {
-        return this.cmrFileUploadUrl;
-    }
-    public getCRMListUrl() {
-     return this.crmStatListUrl;
-    }
-
-    // Added for admin rule
-    
   private crmStatListUrl: string;
 
   private reportingStatusSetUrl: string;
   private reportingStatusUrl: string;
-  private crmCanUrl:string;
-  private reportsStats:string;
-  private cynchAttributeUrl:string;
-  private querySegmentUrl:String;
-  private saveQuerySegmentUrl:String;
-  private deleteDigitalReportSegments:String;
+  private crmCanUrl: string;
+  private reportsStats: string;
+  private cynchAttributeUrl: string;
+  private querySegmentUrl: String;
+  private saveQuerySegmentUrl: String;
+  private deleteDigitalReportSegments: String;
 
-  private tvCampaignOrderList:String;
+  private tvCampaignOrderList: String;
 
   //RED-3264
-  private configurationUrl:String;
+  private configurationUrl: String;
 
   //RED-3477
-  private domoConfigUrl:String;
+  private domoConfigUrl: String;
 
-  private domoQueryUrl:String;
-
+  private domoQueryUrl: String;
 
   getReportingStatusConfigSaveUrl() {
     return this.reportingStatusSetUrl;
@@ -204,7 +197,7 @@ export class Configs {
   getSaveQuerySegmentUrl() {
     return this.saveQuerySegmentUrl;
   }
-  
+
   getDeleteQuerySegmentUrl() {
     return this.deleteDigitalReportSegments;
   }
@@ -227,77 +220,98 @@ export class Configs {
     return this.domoQueryUrl;
   }
 
-    constructor() {
-        let hostname = window && window.location && window.location.host;
-        let isLocalHost = false;
-        if (hostname === "localhost:3000") {
-            isLocalHost = true;
-        }
-        this.prefix = ":";
-        this.port = 443;
-        console.log("hostname at Configs.ts file ==>", hostname);
-        // hostname = "https://ehdpde101.dev.dmt.rogers.com";
-        this.baseUrl = "https://" + hostname + this.prefix + this.port + "/";
-        if (isLocalHost) {
-            this.baseUrl = "/";
-        }
-        this.apiPath = "RED/";
-        this.loginUrl = this.baseUrl + this.apiPath + "getAuthToken";
-        this.logoutUrl = this.baseUrl + this.apiPath + "logout";
-        this.segmentGetUrl = this.baseUrl + this.apiPath + "app/getSegmentLabels";
-        this.segmentPostUrl = this.baseUrl + this.apiPath + "app/getAudienceListCounts";
-
-        this.saveAudienceListUrl = this.baseUrl + this.apiPath + "app/saveAudiences";
-        this.overwriteAudienceListUrl = this.baseUrl + this.apiPath + "app/updateAudience";
-        this.audienceListUrl = this.baseUrl + this.apiPath + "app/listAudience";
-        this.audienceEditListUrl = this.baseUrl + this.apiPath + "app/editAudience";
-        this.deleteAudienceListUrl = this.baseUrl + this.apiPath + "app/deleteAudience";
-
-        this.dashboardUrl = this.baseUrl + this.apiPath + "app/getDashBoardDetails";
-        this.dashboardGeopMapUrl = this.baseUrl + this.apiPath + "app/GeoMap";
-        this.dashboardPreflightAPIUrl = this.baseUrl + this.apiPath + "app/dashBoardDates";
-        this.emailUrl = this.baseUrl + this.apiPath + "app/sendMail";
-        this.dashboardLineChartAPIUrl = this.baseUrl + this.apiPath + "app/lineCharts";
-        this.insightsAListAPI = this.baseUrl + this.apiPath + "app/audianceBuilderInsight/launchInsights";
-        this.insightsASizerAPI = this.baseUrl + this.apiPath + "app/audianceBuilderInsight";
-
-        this.userRoleUrl = this.baseUrl + this.apiPath + "app/getLoggedInUserDetail";
-        this.adminUserUrl = this.baseUrl + this.apiPath + "app/admin/users";
-
-        this.audienceTraitUrl = this.baseUrl + this.apiPath + "app/admin/segments";
-        this.reportSerachUrl = this.baseUrl + this.apiPath + "app/report/checkFilesAvailability";
-        this.reportDownloadUrl = this.baseUrl + this.apiPath + "app/report/downloadFile";
-        this.reportListUrl = this.baseUrl + this.apiPath + "app/report/getReports";
-
-        this.audienceTraitSortUrl = this.baseUrl + this.apiPath + "app/admin/moveSegments";
-        this.campaignStatusUrl = this.baseUrl + this.apiPath + "app/getCampaign";
-
-        this.segmentAdvanceModeUrl = this.baseUrl + this.apiPath + "app/getAudienceListCountsAdvanceMode";
-        this.insightsAdvModeApi = this.baseUrl + this.apiPath + "app/audianceBuilderInsightAdvanceMode";
-
-
-        this.cmrFileUploadUrl  = this.baseUrl + this.apiPath + "app/data/upload";
-        this.crmListUrl = this.baseUrl + this.apiPath + "app/data/getCrmDetails";
-        
-
-
-  this.crmStatListUrl = this.baseUrl + this.apiPath + 'app/data/getAdminCrmDetails';
-  this.reportingStatusSetUrl = this.baseUrl + this.apiPath + "app/admin/notificationMessage";
-  this.reportingStatusUrl = this.baseUrl + this.apiPath + "app/admin/getNotificationMessages";
-  this.crmCanUrl = this.baseUrl + this.apiPath + "app/data/getCrmListForSegmentCreation";
-
-  this.reportsStats = this.baseUrl + this.apiPath + "app/admin/reportsStats";
-
-  this.cynchAttributeUrl = this.baseUrl + this.apiPath + "app/admin/cynchAttributes";
-  this.querySegmentUrl = this.baseUrl + this.apiPath + "app/admin/getDigitalReportingSegments";
-  this.saveQuerySegmentUrl = this.baseUrl + this.apiPath + "app/admin/digitalReportingSegment";
-  this.deleteDigitalReportSegments = this.baseUrl + this.apiPath + "app/admin/removeDititalReportSegments";
-
-  this.tvCampaignOrderList =  this.baseUrl + this.apiPath + "app/admin/tvCampaignOrders";
-
-  this.configurationUrl =  this.baseUrl + this.apiPath + "app/admin/coreConfig";
-  this.domoConfigUrl = this.baseUrl + this.apiPath + "app/admin/domoConfig";
-  this.domoQueryUrl = this.baseUrl + this.apiPath + "app/admin/domoQueries";
+  constructor() {
+    let hostname = window && window.location && window.location.host;
+    let isLocalHost = false;
+    if (hostname === "localhost:3000") {
+      isLocalHost = true;
     }
+    this.prefix = ":";
+    this.port = 443;
+    console.log("hostname at Configs.ts file ==>", hostname);
+    // hostname = "https://ehdpde101.dev.dmt.rogers.com";
+    this.baseUrl = "https://" + hostname + this.prefix + this.port + "/";
+    if (isLocalHost) {
+      this.baseUrl = "/";
+    }
+    this.apiPath = "RED/";
+    this.loginUrl = this.baseUrl + this.apiPath + "getAuthToken";
+    this.logoutUrl = this.baseUrl + this.apiPath + "logout";
+    this.segmentGetUrl = this.baseUrl + this.apiPath + "app/getSegmentLabels";
+    this.segmentPostUrl =
+      this.baseUrl + this.apiPath + "app/getAudienceListCounts";
+
+    this.saveAudienceListUrl =
+      this.baseUrl + this.apiPath + "app/saveAudiences";
+    this.overwriteAudienceListUrl =
+      this.baseUrl + this.apiPath + "app/updateAudience";
+    this.audienceListUrl = this.baseUrl + this.apiPath + "app/listAudience";
+    this.audienceEditListUrl = this.baseUrl + this.apiPath + "app/editAudience";
+    this.deleteAudienceListUrl =
+      this.baseUrl + this.apiPath + "app/deleteAudience";
+
+    this.dashboardUrl = this.baseUrl + this.apiPath + "app/getDashBoardDetails";
+    this.dashboardGeopMapUrl = this.baseUrl + this.apiPath + "app/GeoMap";
+    this.dashboardPreflightAPIUrl =
+      this.baseUrl + this.apiPath + "app/dashBoardDates";
+    this.emailUrl = this.baseUrl + this.apiPath + "app/sendMail";
+    this.dashboardLineChartAPIUrl =
+      this.baseUrl + this.apiPath + "app/lineCharts";
+    this.insightsAListAPI =
+      this.baseUrl + this.apiPath + "app/audianceBuilderInsight/launchInsights";
+    this.insightsASizerAPI =
+      this.baseUrl + this.apiPath + "app/audianceBuilderInsight";
+
+    this.userRoleUrl =
+      this.baseUrl + this.apiPath + "app/getLoggedInUserDetail";
+    this.adminUserUrl = this.baseUrl + this.apiPath + "app/admin/users";
+
+    this.audienceTraitUrl = this.baseUrl + this.apiPath + "app/admin/segments";
+    this.reportSerachUrl =
+      this.baseUrl + this.apiPath + "app/report/checkFilesAvailability";
+    this.reportDownloadUrl =
+      this.baseUrl + this.apiPath + "app/report/downloadFile";
+    this.reportListUrl = this.baseUrl + this.apiPath + "app/report/getReports";
+
+    this.audienceTraitSortUrl =
+      this.baseUrl + this.apiPath + "app/admin/moveSegments";
+    this.campaignStatusUrl = this.baseUrl + this.apiPath + "app/getCampaign";
+
+    this.segmentAdvanceModeUrl =
+      this.baseUrl + this.apiPath + "app/getAudienceListCountsAdvanceMode";
+    this.insightsAdvModeApi =
+      this.baseUrl + this.apiPath + "app/audianceBuilderInsightAdvanceMode";
+
+    this.cmrFileUploadUrl = this.baseUrl + this.apiPath + "app/data/upload";
+    this.crmListUrl = this.baseUrl + this.apiPath + "app/data/getCrmDetails";
+
+    this.crmStatListUrl =
+      this.baseUrl + this.apiPath + "app/data/getAdminCrmDetails";
+    this.reportingStatusSetUrl =
+      this.baseUrl + this.apiPath + "app/admin/notificationMessage";
+    this.reportingStatusUrl =
+      this.baseUrl + this.apiPath + "app/admin/getNotificationMessages";
+    this.crmCanUrl =
+      this.baseUrl + this.apiPath + "app/data/getCrmListForSegmentCreation";
+
+    this.reportsStats = this.baseUrl + this.apiPath + "app/admin/reportsStats";
+
+    this.cynchAttributeUrl =
+      this.baseUrl + this.apiPath + "app/admin/cynchAttributes";
+    this.querySegmentUrl =
+      this.baseUrl + this.apiPath + "app/admin/getDigitalReportingSegments";
+    this.saveQuerySegmentUrl =
+      this.baseUrl + this.apiPath + "app/admin/digitalReportingSegment";
+    this.deleteDigitalReportSegments =
+      this.baseUrl + this.apiPath + "app/admin/removeDititalReportSegments";
+
+    this.tvCampaignOrderList =
+      this.baseUrl + this.apiPath + "app/admin/tvCampaignOrders";
+
+    this.configurationUrl =
+      this.baseUrl + this.apiPath + "app/admin/coreConfig";
+    this.domoConfigUrl = this.baseUrl + this.apiPath + "app/admin/domoConfig";
+    this.domoQueryUrl = this.baseUrl + this.apiPath + "app/admin/domoQueries";
+  }
 }
 export default Configs;

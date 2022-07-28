@@ -26,7 +26,6 @@ export class AdminStoreUitls {
     this.clnt = client;
     this.store = pStore;
     this.urlConfig = urlConf;
-
   }
 
   public getAuhObj() {
@@ -41,8 +40,8 @@ export class AdminStoreUitls {
       tok = stuffUser.token;
     } else {
       user = token.idToken.preferredName;
-            tok = token.idToken.rawIdToken;
-            name = token.idToken.name;
+      tok = token.idToken.rawIdToken;
+      name = token.idToken.name;
     }
     const uName = user;
     const authorizationResponse = {
@@ -139,7 +138,7 @@ export class AdminStoreUitls {
     }
 
     const token = this.getAuhObj().authToken;
-    reqObjectSeg.authToken = token
+    reqObjectSeg.authToken = token;
 
     this.clnt
       .getResponse(reqObjectSeg.url, reqObjectSeg)
@@ -183,21 +182,19 @@ export class AdminStoreUitls {
 
           let totalReportsDownloaded: any[] = [];
           rept30D.filter((item: any) => {
-              let indx = usersStats.findIndex(
-                (x: any) => x.userId == item.userId
-              );
-              if (indx >= 0) {
-                totalReportsDownloaded.push({
-                  name: usersStats[indx].firstName,
-                  alt:
-                    usersStats[indx].firstName +
-                    " " +
-                    usersStats[indx].lastName,
-                    campaignCount: item.campaignCount,
-                  reportCount: item.downloadCount,
-                  userId: item.userId,
-                });
-              }
+            let indx = usersStats.findIndex(
+              (x: any) => x.userId == item.userId
+            );
+            if (indx >= 0) {
+              totalReportsDownloaded.push({
+                name: usersStats[indx].firstName,
+                alt:
+                  usersStats[indx].firstName + " " + usersStats[indx].lastName,
+                campaignCount: item.campaignCount,
+                reportCount: item.downloadCount,
+                userId: item.userId,
+              });
+            }
           });
 
           let charts24H = usersStats.filter(
@@ -305,7 +302,10 @@ export class AdminStoreUitls {
             : "Unable to create Trait, please try again later";
         messageBoxObj.Dialog.MessageBox.saveFailed = true;
       } else {
-        if (returnVal.hasOwnProperty("status") && returnVal.status === "Fail" || returnVal.status === "Failure") {
+        if (
+          (returnVal.hasOwnProperty("status") && returnVal.status === "Fail") ||
+          returnVal.status === "Failure"
+        ) {
           messageBoxObj.Dialog.MessageBox.messageHead = "Error!";
           messageBoxObj.Dialog.MessageBox.UserMessage = returnVal.message;
           messageBoxObj.Dialog.MessageBox.saveFailed = true;
@@ -438,10 +438,15 @@ export class AdminStoreUitls {
       .then((returnVal: any) => {
         if (returnVal.hasOwnProperty("status") && returnVal.status) {
         } else {
-          
-          returnVal = returnVal.map((x:any) => ({...x,processedDate:convertToDate(x.updateTs,false,false),
-            uploadedOn:convertToDate(x.creationTs,false,false)}));
-         const sortedVals = returnVal.sort((a:any, b:any) => Date.parse(b.uploadedOn) - Date.parse(a.uploadedOn));
+          returnVal = returnVal.map((x: any) => ({
+            ...x,
+            processedDate: convertToDate(x.updateTs, false, false),
+            uploadedOn: convertToDate(x.creationTs, false, false),
+          }));
+          const sortedVals = returnVal.sort(
+            (a: any, b: any) =>
+              Date.parse(b.uploadedOn) - Date.parse(a.uploadedOn)
+          );
           this.store.dispatch(broadcastCRMStat({ CRMSList: List(sortedVals) }));
         }
         const spinnerState = { UIConfig: { isSpinnerActive: false } };
@@ -515,7 +520,10 @@ export class AdminStoreUitls {
         if (returnVal.hasOwnProperty("status") && returnVal.status) {
           this.store.dispatch(
             reportingStatusAction({
-              data: { currReportingStatus: inValidReponse, currTVStatus: inValidReponse},
+              data: {
+                currReportingStatus: inValidReponse,
+                currTVStatus: inValidReponse,
+              },
             })
           );
         } else {
@@ -526,11 +534,14 @@ export class AdminStoreUitls {
             (obj: any) => obj.pageLable == "TV"
           );
           if (reportIndex >= 0 || tvIndex >= 0) {
-            const resp = reportIndex>=0 ? returnVal[reportIndex]:inValidReponse;
-            const tvResp = tvIndex >=0 ? returnVal[tvIndex]:inValidReponse
-            
+            const resp =
+              reportIndex >= 0 ? returnVal[reportIndex] : inValidReponse;
+            const tvResp = tvIndex >= 0 ? returnVal[tvIndex] : inValidReponse;
+
             this.store.dispatch(
-              reportingStatusAction({ data: { currReportingStatus: resp,currTVStatus: tvResp } })
+              reportingStatusAction({
+                data: { currReportingStatus: resp, currTVStatus: tvResp },
+              })
             );
             let startDate = convertToDate(resp.startTs, false);
             let endDate = convertToDate(resp.endTs, false);
@@ -563,7 +574,11 @@ export class AdminStoreUitls {
       authToken: token,
       url: this.urlConfig.getListCynchAttributeUrl(),
     };
-    let msg =this.store.getState().AdminCynchAttribOperationState.userAction == UserOps.EDIT_ATTRIBUTE ? " Attribute updated successfully":" Attribute created successfully";
+    let msg =
+      this.store.getState().AdminCynchAttribOperationState.userAction ==
+      UserOps.EDIT_ATTRIBUTE
+        ? " Attribute updated successfully"
+        : " Attribute created successfully";
     this.clnt.post("POST", reqObjectSeg, payload).then((returnVal: any) => {
       const messageBoxObj = {
         Dialog: {
@@ -614,7 +629,7 @@ export class AdminStoreUitls {
         // returnVal = require("../../data/attributes.json");
         if (returnVal.hasOwnProperty("status") && returnVal.status) {
         } else {
-          returnVal.forEach(function(e: any) {
+          returnVal.forEach(function (e: any) {
             e["categoryTitle"] = e.categories
               .map((o: any) => o.cynchCategoryName)
               .join(", ");

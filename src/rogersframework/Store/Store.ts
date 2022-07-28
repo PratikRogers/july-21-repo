@@ -44,7 +44,7 @@ const RedUIStore = (preloadedState:any) => {
         storeUtil.login(true);
        
     }
-
+   
     store.subscribe(() => {
         let actionType;
         if (store.getState()) {
@@ -63,26 +63,27 @@ const RedUIStore = (preloadedState:any) => {
       
         actionType = getActionType(store.getState().slickState, actionType);
 
-    actionType = getUserSelectedOperaion(
-      store.getState().AdminUserAddControlState,
-      actionType
-    );
-    actionType = getTraitSelectedOperaion(
-      store.getState().AdminUserTraitControlState,
-      actionType
-    );
-    actionType = getTraitSelectedOperaion(
-      store.getState().AdminUserTraitEditControlState,
-      actionType
-    );
-    actionType = getTraitSelectedOperaion(
-      store.getState().AdminCynchAttribOperationState,
-      actionType
-    );
-    actionType = getReportingStateOperaion(
-      store.getState().ReportingConfigState,
-      actionType
-    );
+        actionType = getUserSelectedOperaion(
+          store.getState().AdminUserAddControlState,
+          actionType
+        );
+        actionType = getTraitSelectedOperaion(
+          store.getState().AdminUserTraitControlState,
+          actionType
+        );
+        actionType = getTraitSelectedOperaion(
+          store.getState().AdminUserTraitEditControlState,
+          actionType
+        );
+        actionType = getTraitSelectedOperaion(
+          store.getState().AdminCynchAttribOperationState,
+          actionType
+        );
+        actionType = getReportingStateOperaion(
+          store.getState().ReportingConfigState,
+          actionType
+        );
+ console.log("Admin CRM => Inside store.ts ==>", actionType);
  
  
         switch (actionType) {
@@ -196,6 +197,7 @@ const RedUIStore = (preloadedState:any) => {
                     break;
                   case UserOps.GET_CRMList:
                     {
+                      console.log("Admin CRM => Inside userOps.Get crmlist");
                       actionType = "";
                       store.getState().slickState.data.loadAPIData = false;
                       store.getState().slickState.data.source = "";
@@ -257,7 +259,7 @@ const RedUIStore = (preloadedState:any) => {
                 break;
         }
     }
-    )
+    );
     return store;
 }
 

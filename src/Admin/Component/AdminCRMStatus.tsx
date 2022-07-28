@@ -1,5 +1,5 @@
 /* eslint-disable */
-import * as React from 'react';
+import * as React from "react";
 import { connect } from "react-redux";
 
 import {
@@ -12,10 +12,7 @@ import {
 import { NavBarConstants } from "../../ConstConfig";
 // import { FormattedNumber } from "react-intl";
 import ConfirmDialog from "../../CommonComponent/ConfirmDialog";
-import {
-  
-  formatBytes,
-} from "../utils/dashboardValidation";
+import { formatBytes } from "../utils/dashboardValidation";
 
 import { UserOps } from "../../ConstConfig/UserOps";
 // import "../../CSS/Audiences.css";
@@ -27,16 +24,16 @@ import MessageBox from "../../CommonComponent/MessageBox";
 import Logger from "../../rogersframework/Logger/Logger";
 
 class AdminCRMStatus extends React.Component<IAdminCRMStatus, {}> {
-   searchText: any;
-   tableProps: any;
-   pageObject: any;
-   sortedColumn: any;
-   selectedRole: any;
-   static MAX_ROWSIZE = 25;
-   timer: any;
-   tableRef: any;
-   dropDownRef: any;
-   rtBtstrpTableRef: any;
+  searchText: any;
+  tableProps: any;
+  pageObject: any;
+  sortedColumn: any;
+  selectedRole: any;
+  static MAX_ROWSIZE = 25;
+  timer: any;
+  tableRef: any;
+  dropDownRef: any;
+  rtBtstrpTableRef: any;
 
   constructor(props: any) {
     super(props);
@@ -86,7 +83,7 @@ class AdminCRMStatus extends React.Component<IAdminCRMStatus, {}> {
   }
   UNSAFE_componentWillMount() {
     console.log(" populateCRMListTable called componentWillMount");
-}
+  }
   searchTextInTable() {
     if (this.searchText && this.searchText != "")
       this.tableProps.search(this.searchText);
@@ -95,7 +92,7 @@ class AdminCRMStatus extends React.Component<IAdminCRMStatus, {}> {
   /*
         Search Panel
     */
-   
+
   getUserSelecctedRolePanel() {
     let roleTag = "All ";
     let roleTxt = " CATEGORY";
@@ -131,10 +128,10 @@ class AdminCRMStatus extends React.Component<IAdminCRMStatus, {}> {
       const paginationPayload = { PaginationProps: contxt.props.lastUserOps };
       contxt.props.submitLastPagination(paginationPayload);
     }
-    function searchByKey(key: any, e: any) {
-      const evnt = { target: { value: key } };
-      search(evnt);
-    }
+    // function searchByKey(key: any, e: any) {
+    //   const evnt = { target: { value: key } };
+    //   search(evnt);
+    // }
     return (
       <div className="row-flex">
         <div className="col-md-6 pl-0 spaceTopTraits spaceTopTraitsmd  spaceTopTraitssmall spaceTopTraitsmob spaceBottom mb-3 order-mb-last">
@@ -154,7 +151,7 @@ class AdminCRMStatus extends React.Component<IAdminCRMStatus, {}> {
             >
               <i className="searchBtnInactive float-right" />
             </button>
-            <input
+            {/* <input
               type="button"
               className="hid"
               onClick={searchByKey.bind(
@@ -162,7 +159,7 @@ class AdminCRMStatus extends React.Component<IAdminCRMStatus, {}> {
                 contxt.props.lastUserOps.searchCat
               )}
               ref={this.loadDropDownRefs}
-            />
+            /> */}
           </div>
         </div>
       </div>
@@ -250,7 +247,6 @@ class AdminCRMStatus extends React.Component<IAdminCRMStatus, {}> {
     );
   }
 
- 
   formatNumber(cell: any, row: any, formatExtraData: any, index: any) {
     const style = formatExtraData === this.sortedColumn ? " boldText " : "";
     if (cell && cell !== "") {
@@ -292,7 +288,6 @@ class AdminCRMStatus extends React.Component<IAdminCRMStatus, {}> {
       </span>
     );
   }
- 
 
   initTabSwitch() {
     const dummyUserObj = {
@@ -390,7 +385,7 @@ class AdminCRMStatus extends React.Component<IAdminCRMStatus, {}> {
 
   loadPagniationPreset() {
     const contxt = this;
-    this.timer = setTimeout(function() {
+    this.timer = setTimeout(function () {
       if (
         contxt.props.lastUserOps.searchCat &&
         contxt.props.lastUserOps.searchCat !== ""
@@ -431,7 +426,7 @@ class AdminCRMStatus extends React.Component<IAdminCRMStatus, {}> {
         {
           dataField: "advertiserName",
           dataSort: true,
-          
+
           changeCaret: this.changeCaret,
           dataFormatMethod: this.getSortedStyle,
           formatExtraData: "advertiserName",
@@ -645,33 +640,30 @@ function mapStateToProps(state: any) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  (dispatch) => {
-    console.log("Admin CRMUploads => Inside export default connect");
-    return {
-      handleSubmit: (dummyUserObj: any) => {
-        dispatch(slickStateAction(dummyUserObj));
-      },
-      handleAudienceSortAction: (
-        editAudience: boolean,
-        rowContent: any,
-        histry: any
-      ) => {
-        dispatch(sendAdminAudienceTraitEditAction(rowContent));
-      },
-      submitToggleSwitchAction: (payload: any) => {
-        dispatch(setToggleStateAction(payload));
-      },
-      showMethdology(messageBoxObj: any) {
-        dispatch(submitUIConfigAction(messageBoxObj));
-      },
-      submitLastPagination(payload: any) {
-        dispatch(sendAdminAudienceTraitPaginationAction(payload));
-      },
-    };
-  }
-)(AdminCRMStatus);
+export default connect(mapStateToProps, (dispatch) => {
+  console.log("Admin CRMUploads => Inside export default connect");
+  return {
+    handleSubmit: (dummyUserObj: any) => {
+      dispatch(slickStateAction(dummyUserObj));
+    },
+    handleAudienceSortAction: (
+      editAudience: boolean,
+      rowContent: any,
+      histry: any
+    ) => {
+      dispatch(sendAdminAudienceTraitEditAction(rowContent));
+    },
+    submitToggleSwitchAction: (payload: any) => {
+      dispatch(setToggleStateAction(payload));
+    },
+    showMethdology(messageBoxObj: any) {
+      dispatch(submitUIConfigAction(messageBoxObj));
+    },
+    submitLastPagination(payload: any) {
+      dispatch(sendAdminAudienceTraitPaginationAction(payload));
+    },
+  };
+})(AdminCRMStatus);
 
 interface IAdminCRMStatus extends React.FC<any> {
   handleSubmit: any;

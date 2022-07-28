@@ -33,7 +33,7 @@ import IntlProvider from "react-intl/src/components/provider";
 import AdminLandingPage from "./Admin/AdminLandingPage";
 import AccessError from "./Login/Component/AccessError";
 import AdminCRMStatus from "./Admin/Component/AdminCRMStatus";
-// import AdminUserList from "./Admin/Component/AdminUserList";
+import AdminUserList from "./Admin/Component/AdminUserList";
 // const possibleLocale = navigator.language.split("-")[0] || "en";
 // addLocaleData(require(`react-intl/locale-data/${possibleLocale}`));
 
@@ -78,7 +78,7 @@ class App extends React.Component<IApp, {}> {
       { path: "/CRMUploader", component: CRMUploaderFormComponent },
       { path: "/Terminology", component: Terminology },
       { path: '/Admin', component: AdminLandingPage },
-      // { path: '/AdminUsersList', component: AdminUserList },
+      { path: '/AdminUsersList', component: AdminUserList },
       { path: '/AdminCRMStatus', component: AdminCRMStatus },
 
 

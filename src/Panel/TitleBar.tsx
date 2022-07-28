@@ -1,64 +1,53 @@
 /* eslint-disable */
-import * as React from 'react';
-import { connect } from 'react-redux';
-import '../bootstrap/css/bootstrap.css';
-import '../CSS/redUI-styles.css';
-import '../bootstrap/js/bootstrap.min.js';
-import { NavBarConstants } from '../ConstConfig';
-import { slickStateAction } from '../Actions';
-// import { authContext } from '../Login/ADAL/adalConfig';
-import {getCachedUser} from '../Login/MSAL/msalConfig';
-// import { withRouter } from 'react-router-dom';
-import { getPageTitle } from './Util/bottomPanelValidationUtils';
-import { getRequiredRoleAccess } from '../Utility/commonUtil';
-import { routeToURL } from '../Utility/routes';
-import UserOps from 'src/ConstConfig/UserOps';
-import { findMatchingRoles } from 'src/Utility/roleBasedAttrib';
+import * as React from "react";
+import { connect } from "react-redux";
+import "../bootstrap/css/bootstrap.css";
+import "../CSS/redUI-styles.css";
+import "../bootstrap/js/bootstrap.min.js";
+import { NavBarConstants } from "../ConstConfig";
+import { slickStateAction } from "../Actions";
 
-interface ITitleBar extends React.FC<any> {
-  handleSubmit: any;
-  errorMessage: any;
-  isLoginSuccessful: any;
-  slickIndexState?: number;
-  UserRole: any;
-  history: any;
-}
-const flow = require('lodash/flow');
-
+import { getAuthContext } from "../Login/MSAL/msalConfig";
+import { Link, withRouter } from "react-router-dom";
+import { getPageTitle } from "./Util/bottomPanelValidationUtils";
+import { getRequiredRoleAccess } from "../Utility/commonUtil";
+import { routeToURL } from "../Utility/routes";
+import UserOps from "src/ConstConfig/UserOps";
+import { findMatchingRoles } from "src/Utility/roleBasedAttrib";
+const flow = require("lodash/flow");
 class TitleBar extends React.Component<ITitleBar, {}> {
+  public itemSelected: string;
+  public loginTitle: string;
+  private refArr: any;
+  private menuTitle: any[];
+  private assignedMenus: any[];
+  private terminology: any;
+  private dashboard: any;
+  // private tvMenu:any;   // blocked by pratik
 
-   itemSelected: string;
-   loginTitle: string;
-   refArr: any;
-   menuTitle: any[];
-   assignedMenus: any[];
-   terminology:any;
-   dashboard:any;
-   tvMenu:any;
+  constructor(props: any) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.getVisibilityClass = this.getVisibilityClass.bind(this);
+    this.refArr = [];
+    this.loadIntoUI = this.loadIntoUI.bind(this);
+    this.focusComponent = this.focusComponent.bind(this);
+    this.startEmailClient = this.startEmailClient.bind(this);
+    this.getRequiredRoleAccess = this.getRequiredRoleAccess.bind(this);
+    this.getMenuList = this.getMenuList.bind(this);
+    this.isRoleExistForMenu = this.isRoleExistForMenu.bind(this);
+    this.assignedMenus = [];
 
-   constructor(props: any) {
-     super(props);
-     this.handleChange = this.handleChange.bind(this);
-     this.getVisibilityClass = this.getVisibilityClass.bind(this);
-     this.refArr = [];
-     this.loadIntoUI = this.loadIntoUI.bind(this);
-     this.focusComponent = this.focusComponent.bind(this);
-     this.startEmailClient = this.startEmailClient.bind(this);
-     this.getRequiredRoleAccess = this.getRequiredRoleAccess.bind(this);
-     this.getMenuList = this.getMenuList.bind(this);
-     this.isRoleExistForMenu = this.isRoleExistForMenu.bind(this);
-     this.assignedMenus = [];
-
-     this.terminology = {
-       title: 'Terminology',
-       linkCls: NavBarConstants.TERMINOLOGYSLICK,
-       linkParam: NavBarConstants.TERMINOLOGY,
-       id: NavBarConstants.SUBMENU,
-       cls: '',
-       isExternalRoute: false,
-       urlPath: '/Terminology',
-       apiDataLoad: false
-     };
+    this.terminology = {
+      title: "Terminology",
+      linkCls: NavBarConstants.TERMINOLOGYSLICK,
+      linkParam: NavBarConstants.TERMINOLOGY,
+      id: NavBarConstants.SUBMENU,
+      cls: "",
+      isExternalRoute: false,
+      urlPath: "/Terminology",
+      apiDataLoad: false,
+    };
 
     this.menuTitle = [
       {
@@ -107,7 +96,7 @@ class TitleBar extends React.Component<ITitleBar, {}> {
         title: "DIV3",
         linkCls: NavBarConstants.REPORTINGLISTSLICK,
         id: NavBarConstants.NONMENU,
-        preRequsiteRole : [UserOps.REPORTINGTV,UserOps.REPORTINGDIGITAL],
+        preRequsiteRole: [UserOps.REPORTINGTV, UserOps.REPORTINGDIGITAL],
         cls: "",
       },
       {
@@ -119,7 +108,7 @@ class TitleBar extends React.Component<ITitleBar, {}> {
         isExternalRoute: true,
         urlPath: "/Reporting/Digital",
         apiDataLoad: false,
-        preRequsiteRole : [UserOps.REPORTINGTV,UserOps.REPORTINGDIGITAL],
+        preRequsiteRole: [UserOps.REPORTINGTV, UserOps.REPORTINGDIGITAL],
       },
       {
         title: "DIGITAL REPORTING",
@@ -130,7 +119,7 @@ class TitleBar extends React.Component<ITitleBar, {}> {
         isExternalRoute: true,
         urlPath: "/Reporting/Digital",
         apiDataLoad: false,
-        preRequsiteRole : [UserOps.REPORTINGDIGITAL],
+        preRequsiteRole: [UserOps.REPORTINGDIGITAL],
       },
       {
         title: "TV REPORTING",
@@ -140,7 +129,7 @@ class TitleBar extends React.Component<ITitleBar, {}> {
         cls: " d-desk-none d-ipad-block d-mb-block iPadLandscape-block",
         isExternalRoute: true,
         urlPath: "/Reporting/TV",
-        preRequsiteRole : [UserOps.REPORTINGTV],
+        preRequsiteRole: [UserOps.REPORTINGTV],
         apiDataLoad: false,
       },
       {
@@ -176,251 +165,303 @@ class TitleBar extends React.Component<ITitleBar, {}> {
         apiDataLoad: false,
       },
     ];
-     this.dashboard = this.menuTitle[0];
-     this.tvMenu = this.menuTitle[8];
 
-   }
+    this.dashboard = this.menuTitle[0];
+    // this.tvMenu = this.menuTitle[8];
+  }
 
-   handleChange(itemName: any, e: any) {
+  public handleChange(itemName: any, e: any) {
+    this.props.handleSubmit(itemName);
+    if (itemName.isExternalRoute) {
+      routeToURL(itemName.urlPath);
+    } else {
+      this.props.history.push(itemName.urlPath);
+    }
+    const component = this.refArr[2];
+    if (component) {
+      component.click();
+    }
+  }
 
-     this.props.handleSubmit(itemName);
-     if (itemName.isExternalRoute) {
-       routeToURL(itemName.urlPath);
-     } else {
-       this.props.history.push(itemName.urlPath);
-     }
-     const component = this.refArr[2];
+  public focusComponent(ref: any, grpButton?: any) {
+    this.refArr.push(ref);
+  }
 
-     if (component) {
-       component.click();
-     }
+  public getVisibilityClass(slickIndex: any) {
+    const clsName = "";
+    if (this.props.slickIndexState === slickIndex) {
+      return " active ";
+    }
+    return clsName;
+  }
 
-   }
+  public loadIntoUI(indx: any, show: any, e: any) {
+    const component = this.refArr[indx];
+    if (component) {
+      component.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "start",
+      });
+      this.refArr[indx].setAttribute("aria-expanded", show);
+    }
+  }
 
-   focusComponent(ref: any, grpButton?: any) {
-     this.refArr.push(ref);
-   }
+  public getReportingMenuCls(role: any) {
+    const defCls = " dropdown-item customDropdownStyle";
+    if (this.props.UserRole.roles.indexOf(role) < 0) {
+      return "d-none " + defCls;
+    } else return defCls;
+  }
 
-   getVisibilityClass(slickIndex: any) {
-     let clsName = '';
+  public isRoleExistForMenu(menuItem: any) {
+    if (menuItem && menuItem.linkCls !== "") {
+      //RED-3790
+      if (menuItem.hasOwnProperty("preRequsiteRole")) {
+        if (
+          findMatchingRoles(this.props.UserRole.roles, menuItem.preRequsiteRole)
+            .length <= 0
+        ) {
+          return false;
+        }
+      }
+      const index = this.assignedMenus.findIndex(
+        (obj: any) => obj == menuItem.linkCls
+      );
+      if (index >= 0) {
+        return true;
+      }
+    }
+    return false;
+  }
 
-     if (this.props.slickIndexState === slickIndex) {
-       return ' active ';
-     }
-     return clsName;
-   }
+  public getMenuList() {
+    let newMenu: any[] = [];
+    this.menuTitle.map((menuItem: any, i: any) => {
+      if (this.isRoleExistForMenu(menuItem)) {
+        newMenu.push(menuItem);
+      }
+    });
 
-   loadIntoUI(indx: any, show:any, e: any) {
-     const component = this.refArr[indx];
+    let result = newMenu.reduce((unique, o) => {
+      if (!unique.some((obj: any) => obj.title === o.title)) {
+        unique.push(o);
+      }
+      return unique;
+    }, []);
 
-     if (component) {
-       component.scrollIntoView({
-         behavior: 'smooth',
-         block: 'start',
-         inline: 'start'
-       });
-       this.refArr[indx].setAttribute('aria-expanded', show);
-     }
-
-   }
-
-   getReportingMenuCls(role:any) {
-     const defCls = ' dropdown-item customDropdownStyle';
-
-     if (this.props.UserRole.roles.indexOf(role) < 0) {
-       return 'd-none ' + defCls;
-     }
-     return defCls;
-   }
-
-   isRoleExistForMenu(menuItem: any) {
-
-     if (menuItem && menuItem.linkCls !== '') {
-       // RED-3790
-       if (menuItem.hasOwnProperty('preRequsiteRole')) {
-        // console.log('menuItem.hasOwnProperty()===', menuItem);
-         if (findMatchingRoles(this.props.UserRole.roles, menuItem.preRequsiteRole).length <= 0) {
-          //  ! Open below code when reporting module got initiate. 
-          // return false;
-         }
-       }
-   var numberArray = [];
-   length = this.assignedMenus.length;
-   for (var i = 0; i < length; i++)
-       numberArray.push(parseInt(this.assignedMenus[i]));
-    //  console.log(numberArray);
-    // console.log('menuItem.linkCls===', menuItem.linkCls);
-
-       const index = numberArray.findIndex((obj: any) => obj === menuItem.linkCls);
-      //  console.log('index===', index);
-
-       if (index >= 0) {
-         return true;
-       }
-     }
-     return false;
-   }
-
-   getMenuList() {
-     let newMenu: any[] = [];
-
-     this.menuTitle.map((menuItem: any, i: any) => {
-       if (this.isRoleExistForMenu(menuItem)) {
-         newMenu.push(menuItem);
-       }
-     });
-
-     let result = newMenu.reduce((unique, o) => {
-       if (!unique.some((obj: any) => obj.title === o.title)) {
-         unique.push(o);
-       }
-       return unique;
-     }, []);
-
-     return result.map((menuItem: any, i: any) => {
-       if (menuItem.id === NavBarConstants.NONMENU) {return <span key={i + 'span'}>|</span>;} else if (menuItem.id === NavBarConstants.REPORTINGLISTSLICK) {
-         return (
-           <li
-             key={menuItem.id}
-             className={
-               'nav-item dropdown ' +
+    return result.map((menuItem: any, i: any) => {
+      if (menuItem.id == NavBarConstants.NONMENU)
+        return <span key={i + "span"}>|</span>;
+      else if (menuItem.id == NavBarConstants.REPORTINGLISTSLICK)
+        return (
+          // <li
+          //   key={menuItem.id}
+          //   className={
+          //     "nav-item dropdown " +
+          //     menuItem.cls +
+          //     this.getVisibilityClass(menuItem.linkCls)
+          //   }
+          // >
+          //   <a
+          //     key={i + "A"}
+          //     className="nav-link dropdown-toggle"
+          //     aria-haspopup="true"
+          //     aria-expanded="false"
+          //     data-toggle="dropdown"
+          //     id="navbarDropdown"
+          //     href="javascript:void(0);"
+          //   >
+          //     {menuItem.title}
+          //   </a>
+          //   <div
+          //     className="dropdown-menu redBg"
+          //     aria-labelledby="navbarDropdown"
+          //   >
+          //     <a
+          //       className={this.getReportingMenuCls(UserOps.REPORTINGDIGITAL)}
+          //       href="javascript:void(0);"
+          //       onClick={this.handleChange.bind(this, menuItem)}
+          //     >
+          //       DIGITAL
+          //     </a>
+          //     <a
+          //       className={this.getReportingMenuCls(UserOps.REPORTINGTV)}
+          //       href="javascript:void(0);"
+          //       onClick={this.handleChange.bind(this, this.tvMenu)}
+          //     >
+          //       TV
+          //     </a>
+          //   </div>
+          // </li>
+          <p>URL blocked by Pratiik</p>
+        );
+      else
+        return (
+          <li
+            key={menuItem.linkCls}
+            className={
+              "nav-item " +
               menuItem.cls +
               this.getVisibilityClass(menuItem.linkCls)
-             }
-           >
-             <a
-               key={i + 'A'}
-               className="nav-link dropdown-toggle"
-               aria-haspopup="true"
-               aria-expanded="false"
-               data-toggle="dropdown"
-               id="navbarDropdown"
-               href={menuItem.urlPath}
-             >
-               {menuItem.title}
-             </a>
-             <div
-               className="dropdown-menu redBg"
-               aria-labelledby="navbarDropdown"
-             >
-               <a
-                 className={this.getReportingMenuCls(UserOps.REPORTINGDIGITAL)}
-                 href={menuItem.urlPath}
-                 onClick={this.handleChange.bind(this, menuItem)}
-               >
-                DIGITAL
-               </a>
-               <a
-                 className={this.getReportingMenuCls(UserOps.REPORTINGTV)}
-                 href={menuItem.urlPath}
-                 onClick={this.handleChange.bind(this, this.tvMenu)}
-               >
-                TV
-               </a>
-             </div>
-           </li>
-         );
-       }
-       return (
-         <li
-           key={menuItem.linkCls}
-           className={
-             'nav-item ' +
-              menuItem.cls +
-              this.getVisibilityClass(menuItem.linkCls)
-           }
-         >
-           <a
-             key={i + 'A'}
-             className="nav-link"
-             href={menuItem.urlPath}
-             onClick={this.handleChange.bind(this, menuItem)}
-           >
-             {menuItem.title}
-           </a>
-         </li>
-       );
-     });
-   }
+            }
+          >
+            <Link key={i + "A"} className="nav-link" to={menuItem.urlPath}>
+              {menuItem.title}
+            </Link>
+          </li>
+        );
+    });
+  }
 
-   getRequiredRoleAccess() {
-    // console.log('this.getRequiredRoleAccess();');
+  public getRequiredRoleAccess() {
+    this.assignedMenus = getRequiredRoleAccess(this.props.UserRole);
+  }
 
-     this.assignedMenus = getRequiredRoleAccess(this.props.UserRole);
-   }
+  public startEmailClient() {
+    const token = getAuthContext();
+    const toEmail = process.env.REACT_APP_TO_EMAIL;
+    const userName = token.idToken.preferredName;
+    const subject = process.env.REACT_APP_TO_SUBJECT + " " + userName;
+    const body = process.env.REACT_APP_TO_BODY + " " + getPageTitle();
+    return (
+      "mailto:" +
+      toEmail +
+      "?subject=" +
+      subject +
+      "&body=" +
+      body +
+      "%0D%0A%0D%0A%0D%0A"
+    );
+  }
 
-   startEmailClient() {
-     const toEmail = process.env.REACT_APP_TO_EMAIL;
-     const userName = getCachedUser().profile.name;
-     const subject = process.env.REACT_APP_TO_SUBJECT + ' ' + userName;
-     const body = process.env.REACT_APP_TO_BODY + ' ' + getPageTitle();
-     // const component = this.refArr[2];
-     // if(component) {
-     //   component.click();
-     // }
-
-     return 'mailto:' + toEmail + '?subject=' + subject + '&body=' + body + '%0D%0A%0D%0A%0D%0A';
-
-   }
-
-   render() {
-     this.getRequiredRoleAccess();
-     return (
-       <header className="fixed-top">
-         <div className="container-fluid">
-           <a id="" className="menu-toggle" aria-label="Open main menu" ref={this.focusComponent} onClick={this.loadIntoUI.bind(this, 3, true)}>
-             <span ref={this.focusComponent} className="hamburger" />
-           </a>
-           <a className="navbar-brand" href="#" onClick={this.handleChange.bind(this, this.dashboard)}><img src={require('../images/RED_Logo.png')} /></a>
-           <nav id="main-menu" className="main-menu" aria-label="Main menu" ref={this.focusComponent}>
-             <a ref={this.focusComponent} id="mainmenuclose" className="menu-close closeIco" aria-label="Close main menu" onClick={this.loadIntoUI.bind(this, 3, false)} >
-               <span className="" aria-hidden="true" />
-             </a>
-             {this.props.isLoginSuccessful ?
-               <ul id="navbar-collapse">
-                 {this.getMenuList()}
-                 <li className="nav-item navLink">
-                   <a className="nav-link" data-toggle="collapse" href="#" onClick={this.handleChange.bind(this, this.terminology)}>TERMINOLOGY</a>
-                 </li>
-                 <li className="nav-item navLink">
-                   <a className="nav-link" href={this.startEmailClient()} >SEND FEEDBACK </a>
-                 </li>
-               </ul> :
-               <div />
-             }
-           </nav>
-           <a className="backdrop" aria-hidden="true" onClick={this.loadIntoUI.bind(this, 3, false)} />
-         </div>
-       </header>
-
-     );
-   }
+  public render() {
+    this.getRequiredRoleAccess();
+    return (
+      <header className="fixed-top">
+        <div className="container-fluid">
+          <a
+            id=""
+            className="menu-toggle"
+            aria-label="Open main menu"
+            ref={this.focusComponent}
+            onClick={this.loadIntoUI.bind(this, 3, true)}
+          >
+            <span
+              ref={this.focusComponent}
+              className="hamburger"
+              aria-hidden="true"
+            />
+          </a>
+          <a
+            className="navbar-brand"
+            href="javascript:void(0);"
+            onClick={this.handleChange.bind(this, this.dashboard)}
+          >
+            <img src={require("../images/RED_Logo.png")} />
+          </a>
+          <nav
+            id="main-menu"
+            className="main-menu"
+            aria-label="Main menu"
+            ref={this.focusComponent}
+          >
+            <a
+              ref={this.focusComponent}
+              id="mainmenuclose"
+              className="menu-close closeIco"
+              aria-label="Close main menu"
+              onClick={this.loadIntoUI.bind(this, 3, false)}
+            >
+              <span className="" aria-hidden="true" />
+            </a>
+            {this.props.isLoginSuccessful ? (
+              <ul id="navbar-collapse">
+                {this.getMenuList()}
+                <li className="nav-item navLink">
+                  <a
+                    className="nav-link"
+                    data-toggle="collapse"
+                    href="javascript:void(0);"
+                    onClick={this.handleChange.bind(this, this.terminology)}
+                  >
+                    TERMINOLOGY
+                  </a>
+                </li>
+                {/* <li className="nav-item navLink">
+                  <a className="nav-link" href={this.startEmailClient()}>
+                    SEND FEEDBACK{' '}
+                  </a>
+                </li> */}
+              </ul>
+            ) : (
+              <div />
+            )}
+          </nav>
+          <a
+            className="backdrop"
+            aria-hidden="true"
+            onClick={this.loadIntoUI.bind(this, 3, false)}
+          />
+        </div>
+      </header>
+    );
+  }
 }
 
 function mapStateToProps(state: any) {
   return {
     errorMessage: state.showErrorBoxState.errorMessage,
-    isLoginSuccessful: state.userAuth.hasOwnProperty('data') && state.userAuth.data.isLoginSuccessful === true ? state.userAuth.data.isLoginSuccessful : false,
-    slickIndexState: state.slickState.hasOwnProperty('data') && state.slickState.data.slickIdx ? state.slickState.data.slickIdx : NavBarConstants.CRMSLICK,
-    UserRole: state.AdminUserControlState.hasOwnProperty('UserProfile') && state.AdminUserControlState.UserProfile ? state.AdminUserControlState.UserProfile :
-      { 'email': '', 'company': null, 'userId': null, 'firstName': '', 'lastName': '', 'roles': ['User'] },
-    progressBarStatus: state.ProgressCRMState.hasOwnProperty('data') ? state.ProgressCRMState.data : { loaded: 1, total: 1 }
-
+    isLoginSuccessful:
+      state.userAuth.hasOwnProperty("data") &&
+      state.userAuth.data.isLoginSuccessful === true
+        ? state.userAuth.data.isLoginSuccessful
+        : false,
+    slickIndexState:
+      state.slickState.hasOwnProperty("data") && state.slickState.data.slickIdx
+        ? state.slickState.data.slickIdx
+        : NavBarConstants.ADMINSLICK,
+    UserRole:
+      state.AdminUserControlState.hasOwnProperty("UserProfile") &&
+      state.AdminUserControlState.UserProfile
+        ? state.AdminUserControlState.UserProfile
+        : {
+            email: "",
+            company: null,
+            userId: null,
+            firstName: "",
+            lastName: "",
+            roles: ["User"],
+          },
   };
 }
 
-export default flow(connect(mapStateToProps, (dispatch, props) => {
-  console.log('export default flow(connect(mapStateToProps');
-
-  return {
-    handleSubmit: (selectedItem: any) => {
-      if (selectedItem.linkParam === NavBarConstants.FEEDBACK) {
-        return;
-      }
-      let dummyUserObj = { UserAction: 'SlickPosition', selectedTab: selectedItem.linkParam, slickIdx: selectedItem.linkCls, loadAPIData: selectedItem.apiDataLoad, source: '' };
-
-      dispatch(slickStateAction(dummyUserObj));
-    }
-  };
-})
+export default flow(
+  connect(mapStateToProps, (dispatch, props) => {
+    return {
+      handleSubmit: (selectedItem: any) => {
+        if (selectedItem.linkParam === NavBarConstants.FEEDBACK) {
+          return;
+        }
+        let dummyUserObj = {
+          UserAction: "SlickPosition",
+          selectedTab: selectedItem.linkParam,
+          slickIdx: selectedItem.linkCls,
+          loadAPIData: selectedItem.apiDataLoad,
+          source: "",
+        };
+        dispatch(slickStateAction(dummyUserObj));
+      },
+    };
+  }),
+  withRouter
 )(TitleBar);
+
+interface ITitleBar extends React.FC<any> {
+  handleSubmit: any;
+  errorMessage: any;
+  isLoginSuccessful: any;
+  slickIndexState?: number;
+  UserRole: any;
+  history: any;
+}

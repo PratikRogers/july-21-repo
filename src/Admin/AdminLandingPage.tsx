@@ -1,13 +1,18 @@
 /* eslint-disable */
-import * as React from 'react';
-import { connect } from 'react-redux';
-import { Configs, NavBarConstants } from '../ConstConfig';
-import { getAllDomoQueires, getDomoConfiguration, slickStateAction } from '../Actions';
+import * as React from "react";
+import { connect } from "react-redux";
+import { Configs, NavBarConstants } from "../ConstConfig";
+import {
+  getAllDomoQueires,
+  getDomoConfiguration,
+  slickStateAction,
+} from "../Actions";
+import { Link } from "react-router-dom";
 // import AdminDashboard from './AdminDashboard';
 
 class AdminLandingPage extends React.Component<IAdminLandingPage, {}> {
   private adminPanelList: any;
-  private config:any;
+  private config: any;
 
   constructor(props: any) {
     super(props);
@@ -15,138 +20,138 @@ class AdminLandingPage extends React.Component<IAdminLandingPage, {}> {
     this.config = new Configs();
     this.adminPanelList = [
       {
-        title: 'Admin Users',
+        title: "Admin Users",
         payload: {
-          UserAction: 'SlickPosition',
+          UserAction: "SlickPosition",
           selectedTab: NavBarConstants.ADMINSLICK,
           slickIdx: NavBarConstants.ADMINSLICK,
-          source: 'LISTUSER',
-          hstry: this.props.history
+          source: "LISTUSER",
+          hstry: this.props.history,
         },
-        path: '/AdminUsersList',
-        id: 'AdminUsersList'
+        path: "/AdminUsersList",
+        id: "AdminUsersList",
       },
       {
-        title: 'Audience Traits',
+        title: "Audience Traits",
         payload: {
-          UserAction: 'SlickPosition',
+          UserAction: "SlickPosition",
           selectedTab: NavBarConstants.AUDIENCETRAITSLICK,
           slickIdx: NavBarConstants.AUDIENCETRAITSLICK,
-          source: 'LISTTRAITS',
-          hstry: this.props.history
+          source: "LISTTRAITS",
+          hstry: this.props.history,
         },
-        path: '/AdminAudienceSegmentList',
-        id: 'AdminAudienceSegmentList'
+        path: "/AdminAudienceSegmentList",
+        id: "AdminAudienceSegmentList",
       },
       {
-        title: 'Cynch Attributes',
+        title: "Cynch Attributes",
         payload: {
-          UserAction: 'SlickPosition',
+          UserAction: "SlickPosition",
           selectedTab: NavBarConstants.AUDIENCECYNCHSLICK,
           slickIdx: NavBarConstants.AUDIENCECYNCHSLICK,
           // Need to change 2944
-          source: 'LISTTRAITS',
-          hstry: this.props.history
+          source: "LISTTRAITS",
+          hstry: this.props.history,
         },
-        path: '/AdminCynchAttributeList',
-        id: 'AdminCynchAttributeList'
+        path: "/AdminCynchAttributeList",
+        id: "AdminCynchAttributeList",
       },
       {
-        title: 'CRM Uploads',
+        title: "CRM Uploads",
         payload: {
-          UserAction: 'SlickPosition',
+          UserAction: "SlickPosition",
           selectedTab: NavBarConstants.ADMINCRMSTATUSSLICK,
           slickIdx: NavBarConstants.ADMINCRMSTATUSSLICK,
-          source: 'LISTCRM',
-          hstry: this.props.history
+          source: "LISTCRM",
+          hstry: this.props.history,
         },
-        path: '/AdminCRMStatus',
-        id: 'AdminCRMStatus'
+        path: "/AdminCRMStatus",
+        id: "AdminCRMStatus",
       },
-      {
-        title: 'TV Campaign Aggregation',
-        payload: {
-          UserAction: 'SlickPosition',
-          selectedTab: NavBarConstants.ADMINCRMSTATUSSLICK,
-          slickIdx: NavBarConstants.ADMINCRMSTATUSSLICK,
-          source: 'LISTTVCAMPAIGN',
-          hstry: this.props.history
-        },
-        path: '/TVCampaignAggregation',
-        id: 'TVCampaignAggregation'
-      },
-      {
-        title: 'Reporting Status',
-        payload: {
-          UserAction: 'SlickPosition',
-          selectedTab: NavBarConstants.ADMINREPORTINGSTATUS,
-          slickIdx: NavBarConstants.ADMINREPORTINGSTATUS,
-          source: 'LISTREPORTINGBANER',
-          hstry: this.props.history
-        },
-        path: '/AdminReportingBannerStatus',
-        id: 'AdminReportingBannerStatus'
-      },
-      {
-        title: 'Audience Query Segment IDs',
-        payload: {
-          UserAction: 'SlickPosition',
-          selectedTab: NavBarConstants.ADMINREPORTINGSTATUS,
-          slickIdx: NavBarConstants.ADMINREPORTINGSTATUS,
-          source: '',
-          hstry: this.props.history
-        },
-        path: '/QueryAudienceSegmentIds',
-        id: 'QueryAudienceSegmentIds'
-      },
-      {
-        title: 'Core Configuration',
-        payload: {
-          UserAction: 'SlickPosition',
-          selectedTab: NavBarConstants.ADMINREPORTINGSTATUS,
-          slickIdx: NavBarConstants.ADMINREPORTINGSTATUS,
-          source: '',
-          hstry: this.props.history
-        },
-        path: '/ConfigurationSettings',
-        id: 'ConfigurationSettings'
-      },
-      {
-        title: 'Domo API Keys',
-        payload: {
-          UserAction: 'SlickPosition',
-          selectedTab: NavBarConstants.DOMOAPI,
-          slickIdx: NavBarConstants.DOMOAPI,
-          source: '',
-          hstry: this.props.history
-        },
-        path: '/DomoConfigManagement',
-        id: 'DomoConfigManagement'
-      },
-      {
-        title: 'Domo Queries',
-        payload: {
-          UserAction: 'SlickPosition',
-          selectedTab: NavBarConstants.DOMOQUERY,
-          slickIdx: NavBarConstants.DOMOQUERY,
-          source: '',
-          hstry: this.props.history
-        },
-        path: '/DomoQueryManagement',
-        id: 'DomoQueryManagement'
-      },
-      {
-        title: 'System Information',
-        payload: {
-          UserAction: 'SlickPosition',
-          selectedTab: NavBarConstants.SYSINFO,
-          slickIdx: NavBarConstants.SYSINFO,
-          source: '',
-          hstry: this.props.history
-        },
-        path: '/SystemInformation',
-        id: 'SystemInformation'
-      }
+      // {
+      //   title: 'TV Campaign Aggregation',
+      //   payload: {
+      //     UserAction: 'SlickPosition',
+      //     selectedTab: NavBarConstants.ADMINCRMSTATUSSLICK,
+      //     slickIdx: NavBarConstants.ADMINCRMSTATUSSLICK,
+      //     source: 'LISTTVCAMPAIGN',
+      //     hstry: this.props.history
+      //   },
+      //   path: '/TVCampaignAggregation',
+      //   id: 'TVCampaignAggregation'
+      // },
+      // {
+      //   title: 'Reporting Status',
+      //   payload: {
+      //     UserAction: 'SlickPosition',
+      //     selectedTab: NavBarConstants.ADMINREPORTINGSTATUS,
+      //     slickIdx: NavBarConstants.ADMINREPORTINGSTATUS,
+      //     source: 'LISTREPORTINGBANER',
+      //     hstry: this.props.history
+      //   },
+      //   path: '/AdminReportingBannerStatus',
+      //   id: 'AdminReportingBannerStatus'
+      // },
+      // {
+      //   title: 'Audience Query Segment IDs',
+      //   payload: {
+      //     UserAction: 'SlickPosition',
+      //     selectedTab: NavBarConstants.ADMINREPORTINGSTATUS,
+      //     slickIdx: NavBarConstants.ADMINREPORTINGSTATUS,
+      //     source: '',
+      //     hstry: this.props.history
+      //   },
+      //   path: '/QueryAudienceSegmentIds',
+      //   id: 'QueryAudienceSegmentIds'
+      // },
+      // {
+      //   title: 'Core Configuration',
+      //   payload: {
+      //     UserAction: 'SlickPosition',
+      //     selectedTab: NavBarConstants.ADMINREPORTINGSTATUS,
+      //     slickIdx: NavBarConstants.ADMINREPORTINGSTATUS,
+      //     source: '',
+      //     hstry: this.props.history
+      //   },
+      //   path: '/ConfigurationSettings',
+      //   id: 'ConfigurationSettings'
+      // },
+      // {
+      //   title: 'Domo API Keys',
+      //   payload: {
+      //     UserAction: 'SlickPosition',
+      //     selectedTab: NavBarConstants.DOMOAPI,
+      //     slickIdx: NavBarConstants.DOMOAPI,
+      //     source: '',
+      //     hstry: this.props.history
+      //   },
+      //   path: '/DomoConfigManagement',
+      //   id: 'DomoConfigManagement'
+      // },
+      // {
+      //   title: 'Domo Queries',
+      //   payload: {
+      //     UserAction: 'SlickPosition',
+      //     selectedTab: NavBarConstants.DOMOQUERY,
+      //     slickIdx: NavBarConstants.DOMOQUERY,
+      //     source: '',
+      //     hstry: this.props.history
+      //   },
+      //   path: '/DomoQueryManagement',
+      //   id: 'DomoQueryManagement'
+      // },
+      // {
+      //   title: 'System Information',
+      //   payload: {
+      //     UserAction: 'SlickPosition',
+      //     selectedTab: NavBarConstants.SYSINFO,
+      //     slickIdx: NavBarConstants.SYSINFO,
+      //     source: '',
+      //     hstry: this.props.history
+      //   },
+      //   path: '/SystemInformation',
+      //   id: 'SystemInformation'
+      // }
     ];
   }
 
@@ -165,7 +170,7 @@ class AdminLandingPage extends React.Component<IAdminLandingPage, {}> {
 
     // const domoQueryObj = {data:{url:this.config.getDomoQueryUrl()}};
     // this.props.loadAllDomoQuries(domoQueryObj);
-   }
+  }
 
   public render() {
     return (
@@ -179,18 +184,17 @@ class AdminLandingPage extends React.Component<IAdminLandingPage, {}> {
                 {this.adminPanelList.map((row: any, idx: any) => {
                   return (
                     <li id={row.id} key={row.title}>
-                      <a
-                        href={row.path}
+                      <Link
+                        to={row.path}
                         onClick={this.itemSelected.bind(this, row)}
                       >
-                        {' '}
+                        {" "}
                         {row.title}
-                      </a>
+                      </Link>
                     </li>
                   );
                 })}
               </ul>
-              
             </div>
           </div>
         </div>
@@ -201,32 +205,29 @@ class AdminLandingPage extends React.Component<IAdminLandingPage, {}> {
 
 function mapStateToProps(state: any) {
   return {
-    errorMessage: state.showErrorBoxState.errorMessage
+    errorMessage: state.showErrorBoxState.errorMessage,
   };
 }
 
-export default connect(
-  mapStateToProps,
-  dispatch => {
-    return {
-      handleSubmit: (dummyUserObj: any) => {
-        dispatch(slickStateAction(dummyUserObj));
-      },
-      handleLoadDomoConfig(payload:any) {
-        dispatch(getDomoConfiguration(payload));
-       },
-       loadAllDomoQuries(payload:any) {
-        dispatch(getAllDomoQueires(payload));
-       }
-    };
-  }
-)(AdminLandingPage);
+export default connect(mapStateToProps, (dispatch) => {
+  return {
+    handleSubmit: (dummyUserObj: any) => {
+      dispatch(slickStateAction(dummyUserObj));
+    },
+    handleLoadDomoConfig(payload: any) {
+      dispatch(getDomoConfiguration(payload));
+    },
+    loadAllDomoQuries(payload: any) {
+      dispatch(getAllDomoQueires(payload));
+    },
+  };
+})(AdminLandingPage);
 
 interface IAdminLandingPage extends React.FC<any> {
   propsFromStore: any;
   handleSubmit: any;
   errorMessage: any;
-  handleLoadDomoConfig?:any;
-  loadAllDomoQuries?:any;
+  handleLoadDomoConfig?: any;
+  loadAllDomoQuries?: any;
   history: any;
 }

@@ -17,7 +17,7 @@ import CalendarControl from 'src/CommonComponent/Calendar/CalendarControl';
 import { convertToUTCDate, findDiffInDays } from 'src/CommonComponent/Calendar/utils/CampaignUtil';
 import CustomDropDown from 'src/CommonComponent/CustomDropDown';
 // import ReactQuill from 'react-quill'; // ES6
-import 'react-quill/dist/quill.snow.css'; // ES6
+// import 'react-quill/dist/quill.snow.css'; // ES6
 import CustomErrorAlertBanner from 'src/CommonComponent/CustomErrorAlertBanner.';
 
 const update = require('react-addons-update');

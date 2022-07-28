@@ -34,7 +34,7 @@ const RedUIStore = (preloadedState:any) => {
     const clnt = new AxiosClient(store);
     
     const adminStoreUtil = new AdminStoreUitls(store, clnt, urlConfig, authContext);
-    const storeUtil = new StoreUitls(store, clnt, urlConfig, authContext);
+    const storeUtil = new StoreUitls(store, clnt, urlConfig, authContext,adminStoreUtil);
     // Logger.getInstance().printDebugLogs("AD", authContext.getCachedUser());
 
     if (configSet !== "LOCAL") {
@@ -83,6 +83,7 @@ const RedUIStore = (preloadedState:any) => {
       store.getState().ReportingConfigState,
       actionType
     );
+ console.log("Admin CRM => Inside store.ts");
  
  
         switch (actionType) {

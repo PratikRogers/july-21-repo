@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 export function getTemplate() {
     return {
         "campaignName": "Test Campaign",
