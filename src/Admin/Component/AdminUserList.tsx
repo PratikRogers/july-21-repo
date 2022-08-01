@@ -17,7 +17,7 @@ import Logger from '../../rogersframework/Logger/Logger';
 import { getAudienceCreationDate } from '../utils/dashboardValidation';
 
 import { UserOps } from '../../ConstConfig/UserOps';
-// import '../../CSS/Audiences.css';
+import '../../CSS/Audiences.css';
 import { List } from 'immutable';
 import Pagination from '../../CommonComponent/Pagination/Pagination';
 import { PageModel } from '../../CommonModels/PageModel';

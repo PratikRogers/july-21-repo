@@ -59,7 +59,7 @@ class AdminUserOperation extends React.Component<IAdminUserOperation, {}> {
   }
 
   public resetStates() {
-    this.state = undefined;
+    // this.state = undefined;
     this.state = {
       adminSelectedRoles: [],
       content: {

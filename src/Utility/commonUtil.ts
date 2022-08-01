@@ -227,13 +227,13 @@ export function getRoleBasedRouteAccess(UserRole: any) {
   let assignedMenus = [];
   if (UserRole && UserRole.hasOwnProperty('roles') && UserRole.roles) {
     UserRole.roles.map((roleItem: any, i: any) => {
-      console.log('if (roleItem)===',roleItem);
+      // console.log('if (roleItem)===',roleItem);
       if (roleItem) {
         
         let role = roleBasedMenu[roleItem];
         menuPerRole += role.join(',') + ',';
       }
-      console.log('menuPerRole===',menuPerRole);
+      // console.log('menuPerRole===',menuPerRole);
     });
   }
   if (menuPerRole !== '') assignedMenus = getUnique(menuPerRole.split(','));

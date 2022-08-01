@@ -130,16 +130,22 @@ export class AxiosClient implements IClient {
       axios.defaults.headers.get["Authorization"] =
         "Bearer " + options.authToken;
     }
+    console.log("Inside post call body");
+    
+    const cancelTokenSource = axios.CancelToken.source();
+
     return axios({
       data: payload,
       method: "post",
       url: options.url,
+      cancelToken: cancelTokenSource.token,
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
     })
       .then((res) => {
+        cancelTokenSource.cancel(); // Cancel reques
         // this.clientStore.dispatch(stopLoader({}));
         return JSON.parse(JSON.stringify(res.data));
       })

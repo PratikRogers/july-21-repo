@@ -1,0 +1,21 @@
+
+.rtLfBorder{
+    border-right: 1px solid #414042!important;
+    border-left: 1px solid #414042!important;
+}
+
+.btmfBorder{
+    border-bottom: 1px solid #414042!important;
+}
+
+.rtTopLfBorder{
+    border-right: 1px solid #414042!important;
+    border-left: 1px solid #414042!important;
+    border-top: 1px solid #414042!important;
+}
+
+.rtNoTopLfBorder{
+    border-right: 0px solid #414042!important;
+    border-left: 0px solid #414042!important;
+    border-top: 0px solid #414042!important;
+}

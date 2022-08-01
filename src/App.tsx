@@ -34,6 +34,7 @@ import AdminLandingPage from "./Admin/AdminLandingPage";
 import AccessError from "./Login/Component/AccessError";
 import AdminCRMStatus from "./Admin/Component/AdminCRMStatus";
 import AdminUserList from "./Admin/Component/AdminUserList";
+import AdminUserOperation from "./Admin/Component/AdminUserOperation";
 // const possibleLocale = navigator.language.split("-")[0] || "en";
 // addLocaleData(require(`react-intl/locale-data/${possibleLocale}`));
 
@@ -75,11 +76,13 @@ class App extends React.Component<IApp, {}> {
       Logger.setLogLevel(LOGLEVEL.ERROR);
     }
     this.allRoutes = [
-      { path: "/CRMUploader", component: CRMUploaderFormComponent },
-      { path: "/Terminology", component: Terminology },
+      
+      { path: '/AddUser', component: AdminUserOperation },
       { path: '/Admin', component: AdminLandingPage },
       { path: '/AdminUsersList', component: AdminUserList },
       { path: '/AdminCRMStatus', component: AdminCRMStatus },
+      { path: "/CRMUploader", component: CRMUploaderFormComponent },
+      { path: "/Terminology", component: Terminology },
 
 
 
@@ -123,10 +126,7 @@ class App extends React.Component<IApp, {}> {
   }
 
   render() {
-    console.log(
-      "this.props.isLoginSuccessful===",
-      this.props.isLoginSuccessful
-    );
+    
     const spinnerState = { UIConfig: { isSpinnerActive: true } };
     if (!this.props.account) {
       this.props.onSignIn();
