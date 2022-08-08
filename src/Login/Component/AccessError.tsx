@@ -64,8 +64,7 @@ class AccessError extends React.Component<ILoginPage, {}> {
         return (
             <div className="row fixed-header-top ml-0 mr-0">
                 <div className="col-12 spaceBottom blockCentered">
-                    <img src="https://vm1192lnxapp001/redui/static/media/safety_icon.e76fc1b1.svg" />
-                    {/* <img src={require("../../svg/safety_icon.svg")} /> */}
+                     <img src={require("../../svg/safety_icon.svg")} />
                     <h3 className="mb-4 mt-4">
                         Access Denied
                     </h3>
