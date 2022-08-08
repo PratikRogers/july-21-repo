@@ -85,14 +85,14 @@ export class AxiosClient implements IClient {
   async getResponse(url: any, data: any) {
     console.log("Inside AxiosClients getresponse");
 
-    axios.defaults.headers.common.Accept = "application/javascript";
+    axios.defaults.headers.common.Accept = "application/json";
     if (data.hasOwnProperty("authToken") && data.authToken !== "") {
       axios.defaults.headers.get["Authorization"] = "Bearer " + data.authToken;
     }
     return axios
       .get(url, {
         headers: {
-          'Content-Type': 'application/javascript'
+          'Content-Type': 'application/json'
         },
         data: {},
       })
