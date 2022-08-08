@@ -4,8 +4,8 @@
   "Last-Update-date": "26th Jul 2022",
   "private": true,
   "homepage": "./",
-  "proxy2": "https://10.73.186.42:8098/",
-  "proxy": "https://vmelxap704/",
+  "proxy": "https://10.73.186.42:8098/",
+  "proxy2": "https://vmelxap704/",
   "dependencies": {
     "-": "^0.0.1",
     "@azure/msal-browser": "^2.28.0",
