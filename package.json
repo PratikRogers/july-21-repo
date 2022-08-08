@@ -3,7 +3,7 @@
   "version": "2.3.0",
   "Last-Update-date": "26th Jul 2022",
   "private": true,
-  "homepage": "./",
+  "homepage": "",
   "proxy": "https://10.73.186.42:8098/",
   "proxy2": "https://vmelxap704/",
   "dependencies": {
