@@ -97,6 +97,8 @@ export class AxiosClient implements IClient {
         data: {},
       })
       .then((res: any) => {
+      console.log("res=>",res);
+        console.log("res.data=>",res.data);
         return res.data;
       })
       .catch((error) => {
