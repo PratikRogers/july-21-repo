@@ -92,7 +92,7 @@ export class AxiosClient implements IClient {
     return axios
       .get(url, {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/javascript'
         },
         data: {},
       })
