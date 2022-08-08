@@ -23,7 +23,7 @@ class TitleBar extends React.Component<ITitleBar, {}> {
   private assignedMenus: any[];
   private terminology: any;
   private dashboard: any;
-  // private tvMenu:any;   // blocked by pratik
+  private tvMenu:any; 
 
   constructor(props: any) {
     super(props);
@@ -167,7 +167,7 @@ class TitleBar extends React.Component<ITitleBar, {}> {
     ];
 
     this.dashboard = this.menuTitle[0];
-    // this.tvMenu = this.menuTitle[8];
+    this.tvMenu = this.menuTitle[8];
   }
 
   public handleChange(itemName: any, e: any) {
@@ -255,46 +255,45 @@ class TitleBar extends React.Component<ITitleBar, {}> {
         return <span key={i + "span"}>|</span>;
       else if (menuItem.id == NavBarConstants.REPORTINGLISTSLICK)
         return (
-          // <li
-          //   key={menuItem.id}
-          //   className={
-          //     "nav-item dropdown " +
-          //     menuItem.cls +
-          //     this.getVisibilityClass(menuItem.linkCls)
-          //   }
-          // >
-          //   <a
-          //     key={i + "A"}
-          //     className="nav-link dropdown-toggle"
-          //     aria-haspopup="true"
-          //     aria-expanded="false"
-          //     data-toggle="dropdown"
-          //     id="navbarDropdown"
-          //     href="javascript:void(0);"
-          //   >
-          //     {menuItem.title}
-          //   </a>
-          //   <div
-          //     className="dropdown-menu redBg"
-          //     aria-labelledby="navbarDropdown"
-          //   >
-          //     <a
-          //       className={this.getReportingMenuCls(UserOps.REPORTINGDIGITAL)}
-          //       href="javascript:void(0);"
-          //       onClick={this.handleChange.bind(this, menuItem)}
-          //     >
-          //       DIGITAL
-          //     </a>
-          //     <a
-          //       className={this.getReportingMenuCls(UserOps.REPORTINGTV)}
-          //       href="javascript:void(0);"
-          //       onClick={this.handleChange.bind(this, this.tvMenu)}
-          //     >
-          //       TV
-          //     </a>
-          //   </div>
-          // </li>
-          <p>URL blocked by Pratiik</p>
+          <li
+            key={menuItem.id}
+            className={
+              "nav-item dropdown " +
+              menuItem.cls +
+              this.getVisibilityClass(menuItem.linkCls)
+            }
+          >
+            <a
+              key={i + "A"}
+              className="nav-link dropdown-toggle"
+              aria-haspopup="true"
+              aria-expanded="false"
+              data-toggle="dropdown"
+              id="navbarDropdown"
+              href="javascript:void(0);"
+            >
+              {menuItem.title}
+            </a>
+            <div
+              className="dropdown-menu redBg"
+              aria-labelledby="navbarDropdown"
+            >
+              <a
+                className={this.getReportingMenuCls(UserOps.REPORTINGDIGITAL)}
+                href="javascript:void(0);"
+                onClick={this.handleChange.bind(this, menuItem)}
+              >
+                DIGITAL
+              </a>
+              <a
+                className={this.getReportingMenuCls(UserOps.REPORTINGTV)}
+                href="javascript:void(0);"
+                onClick={this.handleChange.bind(this, this.tvMenu)}
+              >
+                TV
+              </a>
+            </div>
+          </li>
         );
       else
         return (

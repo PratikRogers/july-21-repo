@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 export function isValidDateRangeWithFlag(notification:any) {
     let resp = false;
     if (notification.hasOwnProperty("selected") && ((notification.selected === "Y") ||(notification.selected ===true))) {

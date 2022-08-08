@@ -1,5 +1,7 @@
 /* eslint-disable */
 export enum CampaignEleConstants {
+    STREETNAME_ERROR="StreetName_Error",
+    REFURL_ERRPR="REFURL_Error",
     CAMPAIGNNAME="CampaignName_Error",
     CAMPAIGNBUDGET="CampaignBudget_Error",
     CAMPAIGNSTARTDATE="CampaignStartDate_Error",

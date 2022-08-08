@@ -1,4 +1,5 @@
 
+/* eslint-disable */
 import { UserOps } from '../ConstConfig/UserOps';
 
 export function getCRMRoleConfigs() {
@@ -15,8 +16,9 @@ export function getRoleConfigs() {
     viewAudience: true,
     viewAudienceDisabled: '  ',
     createNewAudienceDisabled: '  ',
-    createNewAudience: true
-  };
+    createNewAudience: true,
+    requestManager: {clsName:" d-none ", groupsAllowed:[UserOps.REQUESTMANAGER],clsEnabled:' d-none '}
+ };
 }
 export function findMatchingRoles(arr1:any, arr2:any) {
   var ret = [];
@@ -31,12 +33,12 @@ export function findMatchingRoles(arr1:any, arr2:any) {
 }
 export function generateConfiguration(roles:any) {
   const properties = {
-    viewAudience: {clsName: ' d-none ', groupsAllowed: [UserOps.AUDIENCEBUILDER], clsEnabled: ''},
-    createNewAudience: {clsName: ' d-none ', groupsAllowed: [UserOps.AUDIENCEBUILDER], clsEnabled: ''},
-    launchCampaign: {clsName: ' d-none ', groupsAllowed: [UserOps.CAMPAIGNREQ], clsEnabled: ''},
-    launchAudience: {clsName: false, groupsAllowed: [UserOps.AUDIENCEBUILDER], clsEnabled: true}
-  };
-
+    viewAudience : {clsName:" d-none ", groupsAllowed:[UserOps.AUDIENCEBUILDER],clsEnabled:''},
+    createNewAudience: {clsName:" d-none ", groupsAllowed:[UserOps.AUDIENCEBUILDER],clsEnabled:''},
+    launchCampaign: {clsName:" d-none ", groupsAllowed:[UserOps.CAMPAIGNREQ],clsEnabled:''},
+    launchAudience: {clsName:false, groupsAllowed:[UserOps.AUDIENCEBUILDER],clsEnabled:true},
+    requestManager: {clsName:" d-none ", groupsAllowed:[UserOps.REQUESTMANAGER],clsEnabled:''}
+  }
   let newConfig = {};
   var key;
 

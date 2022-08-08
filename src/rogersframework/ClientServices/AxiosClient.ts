@@ -373,5 +373,44 @@ export class AxiosClient implements IClient {
         else return { status: 500, errorData: "" };
       });
   }
+
+  public postFilesRequest( options: any, payload: any) {
+    console.log("Inside postFilesRequest");
+    
+    const contType = "Content-Type";
+    axios.defaults.headers.common.Accept = "application/json";
+    axios.defaults.headers.post[contType] = "multipart/form-data";
+    axios.defaults.maxContentLength = Infinity;
+    if (options.hasOwnProperty("authToken")) {
+      axios.defaults.headers.get["Authorization"] = "Bearer " + options.authToken;
+    }
+    return axios({
+      data: payload,
+      method: 'post',
+      url: options.url,
+      onUploadProgress: (progressEvent: any)=>  {
+        //   console.log(" progress ",progressEvent)
+         }
+    })
+      .then(res => {
+     
+        return res.data;
+      }).catch((error) => {
+        if (error.response) {
+            // console.log("Failed ",error.response.data);
+            Logger.getInstance().printWarnLogs("Status with failure", error.response.status);
+            // console.log(error.response.headers);
+        } else if (error.request) {
+            Logger.getInstance().printWarnLogs(error.request);
+        } else {
+            Logger.getInstance().printWarnLogs('Error', error.message);
+        }
+        // console.log(error.config);
+        setTimeout(() => {
+          return { status: error.response.status, errorData: error.response.data };
+        }, 10);
+      });
+  }
+
 }
 export default AxiosClient;

@@ -128,10 +128,10 @@ class AdminCRMStatus extends React.Component<IAdminCRMStatus, {}> {
       const paginationPayload = { PaginationProps: contxt.props.lastUserOps };
       contxt.props.submitLastPagination(paginationPayload);
     }
-    // function searchByKey(key: any, e: any) {
-    //   const evnt = { target: { value: key } };
-    //   search(evnt);
-    // }
+    function searchByKey(key: any, e: any) {
+      const evnt = { target: { value: key } };
+      search(evnt);
+    }
     return (
       <div className="row-flex">
         <div className="col-md-6 pl-0 spaceTopTraits spaceTopTraitsmd  spaceTopTraitssmall spaceTopTraitsmob spaceBottom mb-3 order-mb-last">
@@ -151,7 +151,7 @@ class AdminCRMStatus extends React.Component<IAdminCRMStatus, {}> {
             >
               <i className="searchBtnInactive float-right" />
             </button>
-            {/* <input
+            <input
               type="button"
               className="hid"
               onClick={searchByKey.bind(
@@ -159,7 +159,7 @@ class AdminCRMStatus extends React.Component<IAdminCRMStatus, {}> {
                 contxt.props.lastUserOps.searchCat
               )}
               ref={this.loadDropDownRefs}
-            /> */}
+            />
           </div>
         </div>
       </div>

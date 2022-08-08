@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { IAudienceList, IAudience } from "./IAudienceModel";
 import {List} from 'immutable';
 import { convertToDate } from "../utils/dashboardValidation";

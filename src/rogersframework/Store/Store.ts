@@ -22,7 +22,7 @@ import reduiDomoConfigMiddleWare from "../middleware/reduiDomoConfigMiddleWare";
 import reduiDomoQueryConfigMiddleware from "../middleware/reduiDomoQueryConfigMiddleware";
 // import Logger from '../Logger/Logger';
 import reduiCRMUploaderMiddleWare from '../middleware/redui-crmuploader';
-
+import reduiRequestsMiddleWare from '../middleware/redui-requests';
 
 const RedUIStore = (preloadedState:any) => {
     
@@ -30,7 +30,7 @@ const RedUIStore = (preloadedState:any) => {
     const authContext = getAuthContext();
     const urlConfig = new Configs();
     const configSet = process.env.REACT_APP_LOGIN_CONFIG;
-    const store = createStore(reducers, applyMiddleware(reduiCRMUploaderMiddleWare ,reduiReportingMiddleWare,reduiQuerySegmentMiddleWare,reduiTVOrderCampaignMiddleware, reduiCoreConfigMiddleWare, reduiDomoConfigMiddleWare, reduiDomoQueryConfigMiddleware));
+    const store = createStore(reducers, applyMiddleware(reduiRequestsMiddleWare, reduiCRMUploaderMiddleWare ,reduiReportingMiddleWare,reduiQuerySegmentMiddleWare,reduiTVOrderCampaignMiddleware, reduiCoreConfigMiddleWare, reduiDomoConfigMiddleWare, reduiDomoQueryConfigMiddleware));
     const clnt = new AxiosClient(store);
     
     const adminStoreUtil = new AdminStoreUitls(store, clnt, urlConfig, authContext);
@@ -83,7 +83,7 @@ const RedUIStore = (preloadedState:any) => {
           store.getState().ReportingConfigState,
           actionType
         );
- console.log("Admin CRM => Inside store.ts ==>", actionType);
+        // console.log("Admin CRM => Inside store.ts ==>", actionType);
  
  
         switch (actionType) {

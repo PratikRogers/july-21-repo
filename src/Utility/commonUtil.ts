@@ -212,14 +212,22 @@ export function getRoleBasedRouteAccess(UserRole: any) {
     [UserOps.REQUESTER]: [
       '/',
       '/Requests',
-      'RequestsReport',
+      '/RequestsReport',
+      '/RequestConfirmation',
       '/Terminology',
+      '/ViewRequests'
     ],
     [UserOps.REQUESTMANAGER]: [
       '/',
       '/Requests',
       '/RequestsReport',
+      '/RequestConfirmation',
+      '/RequestManager',
+      "/RequestDetails",
+      "/RequestUpdateCompleted",
+      '/Requests:requestId',
       '/Terminology',
+      '/ViewRequests'
     ],
     [UserOps.USER]: ['/', '/Terminology']
   };

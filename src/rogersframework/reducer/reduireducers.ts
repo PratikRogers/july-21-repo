@@ -286,6 +286,15 @@ const rootReducer = combineReducers<any>({
     },
     { count: 0 }
   ),
+  RequestsDALStatus: handleActions<any>(
+    {
+      [ActionConstants.DAL_REQUESTS]: (state, { payload: data }) =>
+        data,
+      [ActionConstants.IND_REQUESTS]: (state, { payload: data }) =>
+        data,
+    },
+    { count: 0 }
+  ),
   AdminUserTraitListPaginationControlState: handleActions<any>(
     {
       [ActionConstants.ADMIN_TRAIT_PAGINATION]: (state, { payload: data }) =>
@@ -317,6 +326,258 @@ const rootReducer = combineReducers<any>({
     },
     { count: 0 }
   ),
+  RequestsSubmitState: handleActions<any>(
+    {
+      [ActionConstants.SUBMIT_REQUESTS]: (
+        state,
+        { payload: data }) => data,
+    },
+    { count: 0 }
+  ),
+  RoleBasedConfiguration: handleActions<any>(
+    {
+      [ActionConstants.ROLECONFIG]: (state, { payload: data }) =>
+        data,
+    },
+    { count: 0 }
+  ),
+  RequestsStats: handleActions<any>(
+    {
+      [ActionConstants.SHOWALL_REQUESTS]: (
+        state,
+        { payload: data }
+      ) => data,
+    },
+    { count: 0 }
+  ),
+  RequestersListStats: handleActions<any>(
+    {
+      [ActionConstants.REQUESTERSRECENT_REQUESTS]: (
+        state,
+        { payload: data }
+      ) => data,
+    },
+    { count: 0 }
+  ),
+
+  RequestsUpdateState: handleActions<any>(
+    {
+      [ActionConstants.UPDATE_REQUESTS]: (
+        state,
+        { payload: data }
+      ) => data,
+    },
+    { count: 0 }
+  ),
+  RequestsDownload: handleActions<any>(
+    {
+      [ActionConstants.DOWNLOAD_REQUEST]: (
+        state,
+        { payload: data }
+      ) => data,
+    },
+    { count: 0 }
+  ),
+  CRMCanListState: handleActions<any>(
+    {
+      [ActionConstants.CRMCANLIST]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  
+  DashbardChartStats: handleActions<any>(
+    {
+      [ActionConstants.DASHBOARD_CHARTS]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  // 2944
+  AdminCynchAttribListControlState: handleActions<any>(
+    {
+      [ActionConstants.CYNCHATTRIBUTES]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  AdminCynchAttribCategoryState: handleActions<any>(
+    {
+      [ActionConstants.CYNCHATTRIUPDATE]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  AdminCynchAttribOperationState: handleActions<any>(
+    {
+      [ActionConstants.CYNCHOPERATION]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  AdminCynchAttribEditOperationState: handleActions<any>(
+    {
+      [ActionConstants.CYNCHEDIT]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  AdminCynchAttribParentUpdateState: handleActions<any>(
+    {
+      [ActionConstants.CYNCHCATPARENT]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  AdminQueryAudienceListState: handleActions<any>(
+    {
+      [ActionConstants.QUERYSEGMENTIDSLIST]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  AdminQueryAudienceSaveState: handleActions<any>(
+    {
+      [ActionConstants.QUERYSEGMENTIDSAVE]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  AdminQueryAudienceEditState: handleActions<any>(
+    {
+      [ActionConstants.QUERYSEGMENTIDEDIT]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  AdminQueryAudienceDeleteState: handleActions<any>(
+    {
+      [ActionConstants.QUERYSEGMENTIDDELETE]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  
+  AdminTVOrdersListState: handleActions<any>(
+    {
+      [ActionConstants.DISPLAYALLTVORDERS]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  AdminTVOrdersSaveState: handleActions<any>(
+    {
+      [ActionConstants.SAVETVORDER]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  AdminTVOrdersEditState: handleActions<any>(
+    {
+      [ActionConstants.EDITTVORDERS]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  AdminTVOrdersDeleteState: handleActions<any>(
+    {
+      [ActionConstants.DELETETVORDER]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  
+  //RED-3264
+  
+  AdminCoreConfigListState: handleActions<any>(
+    {
+      [ActionConstants.LOADCONFIG]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  AdminCoreConfigSaveState: handleActions<any>(
+    {
+      [ActionConstants.SAVECONFIG]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+   
+  AdminCoreConfigGetState: handleActions<any>(
+    {
+      [ActionConstants.LISTALLCONFIG]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  
+  //RED-3477
+  
+  AdminDomoConfigListState: handleActions<any>(
+    {
+      [ActionConstants.LOADDOMOCONFIG]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  AdminDomoConfigSaveState: handleActions<any>(
+    {
+      [ActionConstants.SAVEDOMOCONFIG]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+   
+  AdminDomoConfigGetState: handleActions<any>(
+    {
+      [ActionConstants.LISTDOMOCONFIG]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  
+  //RED-3458 Create Domo query manager in admin
+  
+  AdminDomoQueryListState: handleActions<any>(
+    {
+      [ActionConstants.DISPLAYALLDOMOQUERIES]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  AdminDomoSaveState: handleActions<any>(
+    {
+      [ActionConstants.SAVEDOMOQUERY]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  AdminDomoQueryEditState: handleActions<any>(
+    {
+      [ActionConstants.EDITDOMOQUERY]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  AdminDomoQueryDeleteState: handleActions<any>(
+    {
+      [ActionConstants.DELETEDOMOQUERY]: (state, { payload: data }) =>
+        data
+    },
+    { count: 0 }
+  ),
+  ReportingConfigState: handleActions<any>(
+    {
+      [ActionConstants.REPORTINGSTATUS]: (state, { payload: data }) => data,
+      [ActionConstants.SETREPORTINGSTATUS]: (state, { payload: data }) => data
+    },
+    { count: 0 }
+  ),
+
+
+
+
 });
 
 export default rootReducer;

@@ -10,13 +10,15 @@ import { connect } from 'react-redux';
     }
    
     render() {
-        let chartData = this.props.chartData;
-        if(chartData.length <=0) return <div/>
+       
+        let chartData =[];
+        chartData = this.props.chartData;
+        if(chartData?.length <=0) return <div/>
         if(this.props.UIConfStats.isSpinnerActive){
             chartData = []
         }
         return <ul className="bar-graph">
-        {chartData.map((item: any, i: any) => {
+        {chartData?.map((item: any, i: any) => {
             const stl = {
                 width: item.percent +"%"
             };

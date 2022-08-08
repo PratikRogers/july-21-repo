@@ -26,9 +26,11 @@ if (configSet === "LOCAL") {
 } else {
   root.render(
     <Provider store={store}>
+      <React.StrictMode>
       <BrowserRouter>
         <App />
       </BrowserRouter>
+      </React.StrictMode>
     </Provider>
   );
   registerServiceWorker();

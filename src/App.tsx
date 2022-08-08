@@ -35,6 +35,14 @@ import AccessError from "./Login/Component/AccessError";
 import AdminCRMStatus from "./Admin/Component/AdminCRMStatus";
 import AdminUserList from "./Admin/Component/AdminUserList";
 import AdminUserOperation from "./Admin/Component/AdminUserOperation";
+import RequestsLandingPage from "./Requests/Component/RequestsLandingPage";
+import AppResponseCard from "./Requests/Component/AppResponseCard";
+import RequestManagerLandingPage from "./Requests/Component/RequestManagerLandingPage";
+import RequestsDetails from "./Requests/Component/RequestsDetails";
+import RequestsDetailsDal from "./Requests/Component/RequestsDetailsDal";
+import RequestserDal from "./Requests/Component/RequestserDal";
+import RequestsFormComponent from "./Requests/Component/RequestsFormComponent";
+import RequstCompleted from "./Requests/Component/RequstCompleted";
 // const possibleLocale = navigator.language.split("-")[0] || "en";
 // addLocaleData(require(`react-intl/locale-data/${possibleLocale}`));
 
@@ -83,6 +91,18 @@ class App extends React.Component<IApp, {}> {
       { path: '/AdminCRMStatus', component: AdminCRMStatus },
       { path: "/CRMUploader", component: CRMUploaderFormComponent },
       { path: "/Terminology", component: Terminology },
+
+      // Request module routes
+      {path:"/Requests" , component:RequestsLandingPage},
+      {path:"/RequestsReport" , component:RequestsFormComponent},
+      {path:"/Terminology",component:Terminology},
+      {path:"/RequestConfirmation",component:AppResponseCard},
+      {path:"/RequestUpdateCompleted",component:RequstCompleted},
+      {path:"/RequestManager", component:RequestManagerLandingPage},
+      {path:"/RequestDetails",component: RequestsDetails},
+      {path:"/ViewRequests:?requestId",component:RequestserDal},
+      {path:"/Requests:requestId",component:RequestsDetailsDal},
+   
 
 
 

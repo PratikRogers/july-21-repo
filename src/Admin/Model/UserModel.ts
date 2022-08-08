@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { isValidEmailAddress } from '../utils/dashboardValidation';
 
 export class UserModel {
@@ -29,7 +30,7 @@ export class UserModel {
       this.Roles = userentry.roles;
       this.company = userentry.company;
       this.lastActiveTs = userentry.lastActiveTs;
-      this.phone = userentry.phone
+      this.phone = userentry.phone;
       this.domoDataConstraint = userentry.domoDataConstraint;
     }
   }
@@ -68,7 +69,6 @@ export class UserModel {
   }
   public setRoles(str: any) {
     this.Roles = str;
-    console.log("Setting Roles",this.Roles);
   }
   public getCompany() {
     return this.company;

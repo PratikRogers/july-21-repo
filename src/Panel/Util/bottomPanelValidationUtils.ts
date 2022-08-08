@@ -1,3 +1,4 @@
+/* eslint-disable */
 export function getPageTitle() {
   let navigationPath = window && window.location && window.location.pathname;
 
@@ -17,7 +18,15 @@ export function getPageTitle() {
     { index: 12, heading: 'Admins Landing Page', pagePath: '/Admin' },
     { index: 13, heading: 'Reporting Landing Page', pagePath: '/Reporting' },
     { index: 14, heading: 'CRM Uploading Page', pagePath: '/CRMUploader' },
-    { index: 15, heading: 'Dashboard Page', pagePath: '/redui' }
+    { index: 15, heading: 'Dashboard Page', pagePath: '/redui' },
+    { index: 13, heading: "Reporting Landing Page", pagePath: "/Reporting" },
+    { index: 13, heading: "Requests Landing Page", pagePath: "/Requests" },
+    { index: 14, heading: "Requests Confirmation Page", pagePath: "/RequestConfirmation" },
+    { index: 14, heading: "Requests Report Page", pagePath: "/RequestsReport" },
+    { index: 14, heading: "Request Manager Page", pagePath: "/RequestManager" },
+    { index: 14, heading: "Request Details Page", pagePath: "/RequestDetails" },
+    { index: 14, heading: "Request Updaing Page", pagePath: "/RequestUpdateCompleted" },
+    { index: 14, heading: "View Requests Page", pagePath: "/ViewRequests" },
 
   ];
   const pageIndex = bottomBarItems.findIndex((obj: any) => obj.pagePath === navigationPath);

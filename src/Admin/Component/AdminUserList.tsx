@@ -24,19 +24,19 @@ import { PageModel } from '../../CommonModels/PageModel';
 import TableComponent from '../../CommonComponent/Table/TableComponent';
 
 class AdminUserList extends React.Component<IAdminUserList, {}> {
-  private searchText: any;
-  private tableProps: any;
-  private pageObject: any;
-  private sortedColumn: any;
-  private selectedRole: any;
-  private timer: any;
-  private dropDownRef: any;
-  private tableRefernce:any;
-  private tableRefernceSM:any;
-  // private tableRef:any;
+   searchText: any;
+   tableProps: any;
+   pageObject: any;
+   sortedColumn: any;
+   selectedRole: any;
+   timer: any;
+   dropDownRef: any;
+   tableRefernce:any;
+   tableRefernceSM:any;
+   tableRef:any;
 
-  private static MAX_ROWSIZE = 25;
-  private static EMAILTEXTCODE = 11;
+   static MAX_ROWSIZE = 25;
+   static EMAILTEXTCODE = 11;
   
   constructor(props: any) {
     super(props);
@@ -69,7 +69,7 @@ class AdminUserList extends React.Component<IAdminUserList, {}> {
     this.searchText = null;
   }
 
-  public loadDropDownRefs(ref: any) {
+   loadDropDownRefs(ref: any) {
     this.dropDownRef.push(ref);
   }
 
@@ -105,10 +105,10 @@ class AdminUserList extends React.Component<IAdminUserList, {}> {
       return 'dropdown-item';
     }
   }
-  public loadTableRefs(ref: any) {
+   loadTableRefs(ref: any) {
     this.tableRefernce = ref;
   }
-  public loadTableRefSMDevices(ref: any) {
+   loadTableRefSMDevices(ref: any) {
     this.tableRefernceSM = ref;
   }
 
@@ -133,15 +133,17 @@ class AdminUserList extends React.Component<IAdminUserList, {}> {
       contxt.selectedRole = role;
       props.search(role);
       const searchEmail = contxt.searchText? contxt.searchText :contxt.props.lastUserOps.searchEmail;
+      console.log("searchEmail ==>",searchEmail);
+      
       // const role = contxt.selectedRole? contxt.selectedRole :contxt.props.lastUserOps.selectedRole;
-      if(contxt.searchText && contxt.searchText!= "") {
-        contxt.tableRefernce.handleFilterData({'roles':role,'email':searchEmail});
-        contxt.tableRefernceSM.handleFilterData({'roles':role,'email':searchEmail});
-      }
-      else{
-        contxt.tableRefernce.handleFilterData({'roles':role});
-        contxt.tableRefernceSM.handleFilterData({'roles':role});
-      }
+      // if(contxt.searchText && contxt.searchText!= "") {
+      //   contxt.tableRefernce.handleFilterData({'roles':role,'email':searchEmail});
+      //   contxt.tableRefernceSM.handleFilterData({'roles':role,'email':searchEmail});
+      // }
+      // else{
+      //   contxt.tableRefernce.handleFilterData({'roles':role});
+      //   contxt.tableRefernceSM.handleFilterData({'roles':role});
+      // }
       contxt.props.lastUserOps.searchCat = roleDPLevel;
       contxt.props.lastUserOps.searchRole = role;
       contxt.props.lastUserOps.searchEmail = searchEmail;
@@ -361,7 +363,7 @@ class AdminUserList extends React.Component<IAdminUserList, {}> {
     this.initTabSwitch();
   }
 
-  public handleSubmit(rowContent: any, action: any, evt: any) {
+   handleSubmit(rowContent: any, action: any, evt: any) {
     if (action === ConstAction.DELETE) {
       Logger.getInstance().printDebugLogs(rowContent);
       rowContent['deleteInvokedBy'] = 'AdminUser';
@@ -426,13 +428,13 @@ class AdminUserList extends React.Component<IAdminUserList, {}> {
     );
   }
 
-  public createCustomToolBar = (props: any) => {
+   createCustomToolBar = (props: any) => {
     return (
       <div className="col-12 pl-15 pr-15">{props.components.searchPanel}</div>
     );
   };
 
-  public customSortStyle(order: any, dataField: any) {
+   customSortStyle(order: any, dataField: any) {
     if ((order && order === 'desc') || order === 'asc') {
       this.sortedColumn = dataField;
       return 'boldText';
@@ -440,14 +442,14 @@ class AdminUserList extends React.Component<IAdminUserList, {}> {
     return '';
   }
 
-  public showPanel() {
+   showPanel() {
     if (this.searchText && this.searchText.trim().length > 0) {
       return true;
     }
     return false;
   }
 
-  public isUserHavingAdminRoles() {
+   isUserHavingAdminRoles() {
     if (
       this.props.UserRole &&
       this.props.UserRole.hasOwnProperty('roles') &&
@@ -541,7 +543,7 @@ class AdminUserList extends React.Component<IAdminUserList, {}> {
 
   /*Pagination Ends */
 
-  public render() {
+   render() {
     if (!this.isUserHavingAdminRoles()) {
       this.props.history.push('/');
     }
