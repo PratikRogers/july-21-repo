@@ -97,7 +97,7 @@ export class AxiosClient implements IClient {
         data: {},
       })
       .then((res: any) => {
-      // console.log("res.json()=>",res.json());
+       console.log("res=>",res);
       // console.log("res.json({ a: 1 })=>",res.json({ a: 1 }));
         console.log("res.data=>",res.data);
         return res.data;
