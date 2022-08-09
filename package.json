@@ -4,8 +4,8 @@
   "Last-Update-date": "26th Jul 2022",
   "private": true,
   "homepage": "/Admin",
-  "proxy1": "https://10.73.186.42:8098/",
-  "proxy": {
+  "proxy": "https://10.73.186.42:8098/",
+  "proxy5": {
     "/api": {
       "target": "https://10.73.186.42:8098/",
       "secure": false
