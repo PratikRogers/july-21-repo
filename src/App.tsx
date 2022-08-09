@@ -152,9 +152,9 @@ class App extends React.Component<IApp, {}> {
   render() {
     
     const spinnerState = { UIConfig: { isSpinnerActive: true } };
-    if (!this.props.account) {
-      this.props.onSignIn();
-    }
+   // if (!this.props.account) {
+    //  this.props.onSignIn();
+   // }
 
     return (
       <IntlProvider locale={this.language} messages={this.localizationMessages[this.language]}>
@@ -162,7 +162,7 @@ class App extends React.Component<IApp, {}> {
         <TitleBar />
         <RedUISpinner UIConfStats={spinnerState} />
         {/* <AdminCRMStatus handleChange={undefined} loggingIn={undefined} history={undefined} /> */}
-        {/* <CRMUploaderFormComponent /> */}
+         <CRMUploaderFormComponent /> 
         {this.props.isLoginSuccessful ? (
             <Switch>
             {this.getAllRoutes()}
