@@ -83,6 +83,10 @@ class App extends React.Component<IApp, {}> {
     } else {
       Logger.setLogLevel(LOGLEVEL.ERROR);
     }
+     console.log("process.env.REACT_APP_LOGIN_CONFIG==>", process.env.REACT_APP_LOGIN_CONFIG);
+    console.log("process.env.HTTPS==>", process.env.HTTPS);
+    console.log("process.env.DANGEROUSLY_DISABLE_HOST_CHECK==>", process.env.DANGEROUSLY_DISABLE_HOST_CHECK);
+    
     this.allRoutes = [
       
       { path: '/AddUser', component: AdminUserOperation },
