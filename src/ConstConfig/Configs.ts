@@ -86,8 +86,8 @@ export class Configs {
     this.port = 443;
     console.log("hostname at Configs.ts file ==>", hostname);
     // hostname = "https://ehdpde101.dev.dmt.rogers.com";
-    // this.baseUrl = "https://" + hostname + this.prefix + this.port + "/";
-    this.baseUrl = "https://10.73.186.42:8098/";
+     this.baseUrl = "https://" + hostname + this.prefix + this.port + "/";
+    // this.baseUrl = "https://10.73.186.42:8098/";
     if (isLocalHost) {
       this.baseUrl = "/";
     }
