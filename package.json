@@ -4,7 +4,7 @@
   "Last-Update-date": "26th Jul 2022",
   "private": true,
   "homepage": "",
-  "proxy": "https://10.73.186.43:8098/",
+  "proxy": "https://10.73.186.42:8098/",
   "proxyr": "https://vmelxap704/",
   "dependencies": {
     "-": "^0.0.1",
