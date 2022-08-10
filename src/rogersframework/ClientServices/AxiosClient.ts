@@ -4,12 +4,8 @@ import axios from "axios";
 import { stopLoader, updateProgressCRM } from "../../Actions";
 import Logger from "../Logger/Logger";
 import { clientUitls } from "./apiClientUtil";
-import {
-  adalConfig,
-  msalApp,
-  requiresInteraction,
-} from "src/Login/ADAL/auth-util";
-import { setAuthContextByAxios } from "src/Login/MSAL/msalConfig";
+// import {adalConfig, msalApp,requiresInteraction,} from "src/Login/ADAL/auth-util";
+// import { setAuthContextByAxios } from "src/Login/MSAL/msalConfig";
 
 axios.interceptors.response.use(
   (response) => {
@@ -25,46 +21,46 @@ axios.interceptors.response.use(
       console.log("Returning Exception from path condition");
       return Promise.reject(error);
     }
-    const originalRequest = error.config;
-    if (error.response.status === 401 && !originalRequest._retry) {
-      console.log("Got 401");
-      originalRequest._retry = true;
-      const request = { scopes: [adalConfig.clientId] };
-      try {
-        return msalApp
-          .acquireTokenSilent(request)
-          .then((returnVal: any) => {
-            const token = returnVal;
-            console.log("token===", token);
-            setAuthContextByAxios(token);
-            // axios.defaults.headers.get["Authorization"] =  "Bearer " + token.idToken.rawIdToken;
-            originalRequest.headers.Authorization=
-              "Bearer " + token.idToken.rawIdToken;
-            console.log("Renewed token", token);
-            if (error?.config?.url.includes("upload")) {
-              const data = originalRequest.data;
-              console.log("ORG Data", data);
-            }
-            setTimeout(function () {
-              console.log("From inside timeout", originalRequest);
-              axios(originalRequest), 500;
-            });
-            return axios(originalRequest);
-          })
-          .catch<any>((error) => {
-            // Call acquireTokenPopup (popup window) in case of acquireTokenSilent failure
-            // due to consent or interaction required ONLY
-            console.log("In 401, landed to catch", error.errorCode);
-            if (requiresInteraction(error.errorCode)) {
-              return msalApp.acquireTokenRedirect(request);
-            } else {
-              console.error("Non-interactive error:", error.errorCode);
-            }
-          });
-      } catch (e) {
-        console.error("Something went wrong");
-      }
-    }
+    // const originalRequest = error.config;
+    // if (error.response.status === 401 && !originalRequest._retry) {
+    //   console.log("Got 401");
+    //   originalRequest._retry = true;
+    //   const request = { scopes: [adalConfig.clientId] };
+    //   try {
+    //     return msalApp
+    //       .acquireTokenSilent(request)
+    //       .then((returnVal: any) => {
+    //         const token = returnVal;
+    //         console.log("token===", token);
+    //         setAuthContextByAxios(token);
+    //         // axios.defaults.headers.get["Authorization"] =  "Bearer " + token.idToken.rawIdToken;
+    //         originalRequest.headers.Authorization=
+    //           "Bearer " + token.idToken.rawIdToken;
+    //         console.log("Renewed token", token);
+    //         if (error?.config?.url.includes("upload")) {
+    //           const data = originalRequest.data;
+    //           console.log("ORG Data", data);
+    //         }
+    //         setTimeout(function () {
+    //           console.log("From inside timeout", originalRequest);
+    //           axios(originalRequest), 500;
+    //         });
+    //         return axios(originalRequest);
+    //       })
+    //       .catch<any>((error) => {
+    //         // Call acquireTokenPopup (popup window) in case of acquireTokenSilent failure
+    //         // due to consent or interaction required ONLY
+    //         console.log("In 401, landed to catch", error.errorCode);
+    //         if (requiresInteraction(error.errorCode)) {
+    //           return msalApp.acquireTokenRedirect(request);
+    //         } else {
+    //           console.error("Non-interactive error:", error.errorCode);
+    //         }
+    //       });
+    //   } catch (e) {
+    //     console.error("Something went wrong");
+    //   }
+    // }
     return Promise.reject(error);
   }
 );
@@ -86,23 +82,20 @@ export class AxiosClient implements IClient {
   async getResponse(url: any, data: any) {
     console.log("Inside AxiosClients getresponse");
 
-    axios.defaults.headers.common.Accept = "application/json;charset=UTF-8";
+    axios.defaults.headers.common.Accept = "application/json";
     if (data.hasOwnProperty("authToken") && data.authToken !== "") {
       axios.defaults.headers.get["Authorization"] = "Bearer " + data.authToken;
     }
-    return axios
-      .get(url, {
+    return axios.get(url, {
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'type': 'json'
+          "Content-Type": "application/json",
+          "type": "json"
         },
         data: {},
       })
       .then((res: any) => {
-       console.log("res=>",res);
-      // console.log("res.json({ a: 1 })=>",res.json({ a: 1 }));
-        console.log("res.data=>",res.data);
+        console.log("res.json()===>", res);
+        
         return res.data;
       })
       .catch((error) => {
