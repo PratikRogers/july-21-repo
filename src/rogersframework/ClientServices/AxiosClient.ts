@@ -1,12 +1,12 @@
 /* eslint-disable */
 import IClient from "./IClient";
-import axios from "axios";
+// import axios from "axios";
 import { stopLoader, updateProgressCRM } from "../../Actions";
 import Logger from "../Logger/Logger";
 import { clientUitls } from "./apiClientUtil";
 import {adalConfig, msalApp,requiresInteraction,} from "src/Login/ADAL/auth-util";
 import { setAuthContextByAxios } from "src/Login/MSAL/msalConfig";
-
+const axios = require('axios').default;
 axios.interceptors.response.use(
   (response) => {
     console.log("Inside Interceptors.response.use ==> response==>", response);
