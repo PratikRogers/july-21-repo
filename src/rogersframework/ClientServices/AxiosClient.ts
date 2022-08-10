@@ -13,6 +13,7 @@ import { setAuthContextByAxios } from "src/Login/MSAL/msalConfig";
 
 axios.interceptors.response.use(
   (response) => {
+    console.log("Inside Interceptors.response.use ==> response==>", response);
     return response;
   },
   function (error) {
