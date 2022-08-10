@@ -86,10 +86,7 @@ export class AxiosClient implements IClient {
     if (data.hasOwnProperty("authToken") && data.authToken !== "") {
       axios.defaults.headers.get["Authorization"] = "Bearer " + data.authToken;
     }
-    axios.get(url)
-    .then(res => {
-      console.log('res.data===>', res.data);
-    });
+   
     return axios.get(url, {
         headers: {
           "Content-Type": "application/json"
