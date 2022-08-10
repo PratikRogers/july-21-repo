@@ -94,6 +94,7 @@ export class AxiosClient implements IClient {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
+          'type': 'json'
         },
         data: {},
       })
