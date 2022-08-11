@@ -10,7 +10,8 @@ import RedUIStore from "./rogersframework/Store/Store";
  import registerServiceWorker from "./registerServiceWorker";
 import { BrowserRouter } from "react-router-dom";
 import { createRoot } from "react-dom/client";
-
+const express = require('express'); // Get the module
+const app = express(); // Create express by calling the prototype in var express
 const store = RedUIStore({});
 const configSet = process.env.REACT_APP_LOGIN_CONFIG;
 const root = createRoot(document.getElementById("root"));
