@@ -14,6 +14,11 @@ import { createRoot } from "react-dom/client";
 const store = RedUIStore({});
 const configSet = process.env.REACT_APP_LOGIN_CONFIG;
 const root = createRoot(document.getElementById("root"));
+app.use(express.static(__dirname)); //here is important thing - no static directory, because all static :)
+
+app.get("/*", function(req, res) {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 if (configSet === "LOCAL") {
   root.render(
     <Provider store={store}>
@@ -22,15 +27,15 @@ if (configSet === "LOCAL") {
       </BrowserRouter>
     </Provider>
   );
-  registerServiceWorker();
+   registerServiceWorker();
 } else {
   root.render(
     <Provider store={store}>
-     // <React.StrictMode>
-      <BrowserRouter basename="/">
+      {/* <React.StrictMode> */}
+      <BrowserRouter>
         <App />
       </BrowserRouter>
-     // </React.StrictMode>
+      {/* </React.StrictMode> */}
     </Provider>
   );
   registerServiceWorker();
