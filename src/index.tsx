@@ -8,7 +8,7 @@ import App from "./App";
 import "./index.css";
 import RedUIStore from "./rogersframework/Store/Store";
 import registerServiceWorker from "./registerServiceWorker";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 import { createRoot } from "react-dom/client";
 
 const store = RedUIStore({});
@@ -27,7 +27,9 @@ if (configSet === "LOCAL") {
   root.render(
     <Provider store={store}>
       <BrowserRouter>
+        <HashRouter>
         <App />
+          </HashRouter>
       </BrowserRouter>
     </Provider>
   );
