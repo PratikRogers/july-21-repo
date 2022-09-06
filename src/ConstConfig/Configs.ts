@@ -77,20 +77,31 @@ export class Configs {
   
    
   constructor() {
-    let hostname = window && window.location && window.location.host;
+    // let hostname = window && window.location && window.location.host;
+    let hostname = "10.73.186.40"; // Used for Prod build
     let isLocalHost = false;
     if (hostname === "localhost:3000") {
       isLocalHost = true;
     }
     this.prefix = ":";
-    this.port = 443;
+    // this.port = 443; 
+    this.port = 8098;// Used for Prod build
     console.log("hostname at Configs.ts file ==>", hostname);
-    // hostname = "https://ehdpde101.dev.dmt.rogers.com";
-     this.baseUrl = "https://" + hostname + this.prefix + this.port + "/";
-    // this.baseUrl = "https://10.73.186.42:8098/";
+    this.baseUrl = "https://" + hostname + this.prefix + this.port + "/";
     if (isLocalHost) {
       this.baseUrl = "/";
     }
+
+
+
+    //  This code can be open in prod build
+   /* if (process.env.REACT_APP_LOGIN_CONFIG ==""){
+      this.baseUrl = "/";
+    } else {
+      this.baseUrl = process.env.REACT_APP_API_ENDPOINT;
+    } 
+    console.log("this.baseUrl===>", this.baseUrl);
+   */
     this.apiPath = "RED/";
     this.loginUrl = this.baseUrl + this.apiPath + "getAuthToken";
     this.logoutUrl = this.baseUrl + this.apiPath + "logout";
